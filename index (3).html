@@ -1,0 +1,1485 @@
+<html lang="zh-TW"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>木人艸 - 精緻便當與點心餐盒</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5A2B',      // 木色主色调
+                        secondary: '#D2B48C',    // 浅木色
+                        accent: '#CD853F',       // 棕色强调色
+                        light: '#F5F5DC',        // 米白色背景
+                        dark: '#3E2723',         // 深棕色文字
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        serif: ['Noto Serif TC', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .transition-transform {
+                transition-property: transform;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 300ms;
+            }
+            .scale-hover {
+                @apply hover:scale-105 transition-all duration-300;
+            }
+            .card-shadow {
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&amp;family=Noto+Serif+TC:wght@400;600;700&amp;display=swap" rel="stylesheet">
+</head>
+<body class="bg-light text-dark font-sans">
+    <!-- 导航栏 -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <i class="fa fa-leaf text-primary text-2xl"></i>
+                <span class="font-serif font-bold text-xl text-primary">木人艸</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#hero" class="hover:text-accent transition-colors">首頁</a>
+                <a href="#two-box-compact" class="hover:text-accent transition-colors">二格盒</a>
+                <a href="#four-box-compact" class="hover:text-accent transition-colors">四格盒</a>
+                <a href="#eight-box-compact" class="hover:text-accent transition-colors">韓式八格盒</a>
+                <a href="#dessert-boxes" class="hover:text-accent transition-colors">點心餐盒</a>
+                <a href="#contact" class="hover:text-accent transition-colors">聯繫我們</a>
+            </nav>
+            <button class="md:hidden text-primary text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero区域 -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/431/1920/1080" alt="木人艸精緻便當展示" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark/40"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="font-serif font-bold text-[clamp(2.5rem,6vw,4.5rem)] text-white text-shadow mb-6 leading-tight">
+                木人艸<br>精緻便當與點心餐盒
+            </h1>
+            <p class="text-white text-[clamp(1rem,2vw,1.25rem)] max-w-2xl mx-auto mb-10 text-shadow">
+                準時好吃、好分發、好控預算的正餐便當與點心餐盒，為您的活動帶來美味體驗
+            </p>
+            <a href="#contact" class="inline-block bg-primary hover:bg-accent text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                立即詢價
+            </a>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#features" class="flex flex-col items-center">
+                <span class="mb-2 text-sm">向下捲動</span>
+                <i class="fa fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 核心优势 -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-16">為什麼選擇 <span class="text-primary">木人艸</span></h2>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="text-center p-6 rounded-xl bg-light/50 scale-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-clock-o text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">準時好吃</h3>
+                    <p class="text-gray-600">嚴格把控食材新鮮度與製作流程，確保餐點新鮮美味，並準時送達指定地點。</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-xl bg-light/50 scale-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-share-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">好分發</h3>
+                    <p class="text-gray-600">精心設計的包裝，易於搬運與分發，不論是室內會議還是戶外活動都能輕鬆應對。</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-xl bg-light/50 scale-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-money text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">好控預算</h3>
+                    <p class="text-gray-600">多種方案與價位選擇，提供透明報價，幫助您有效控制活動餐點預算。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 二格盒封面区块 -->
+    <section id="two-box-compact" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">經典設計，主食與配菜完美分離，簡約大方又實用</p>
+            
+            <!-- 封面卡片 -->
+            <div id="two-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer scale-hover">
+                <div class="aspect-[16/9] overflow-hidden">
+                    <img id="cover-image" src="" alt="" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+                </div>
+                <div class="p-6 text-center">
+                    <span class="inline-flex items-center text-primary font-medium">
+                        點擊查看更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 二格盒灯箱 -->
+    <div id="two-pack-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black/80" id="modal-backdrop"></div>
+        <div class="relative z-10 max-w-5xl w-full mx-4">
+            <button id="modal-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300">
+                <i class="fa fa-times"></i>
+            </button>
+            <button id="prev-image" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden">
+                <img id="modal-image" src="" alt="" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+            </div>
+            <button id="next-image" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                <i class="fa fa-chevron-right"></i>
+            </button>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
+                <span id="image-counter">1/4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 二格盒餐盒（原始区块，默认隐藏） -->
+    <section id="two-grid" class="py-20 bg-light hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">經典設計，主食與配菜完美分離，簡約大方又實用</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 二格盒1 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">精選主食搭配季節時蔬，營養均衡</p>
+                    </div>
+                </div>
+                
+                <!-- 二格盒2 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">多種新鮮蔬果搭配，健康無負擔</p>
+                    </div>
+                </div>
+                
+                <!-- 二格盒3 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">低卡高蛋白，適合注重體態的您</p>
+                    </div>
+                </div>
+                
+                <!-- 二格盒4 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">營養均衡，口味溫和，孩子們的最愛</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 四格盒封面区块 -->
+    <section id="four-box-compact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">四格盒植纖餐盒</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
+            
+            <!-- 封面卡片 -->
+            <div id="four-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer scale-hover">
+                <div class="aspect-[16/9] overflow-hidden">
+                    <img id="four-cover-image" src="" alt="" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+                </div>
+                <div class="p-6 text-center">
+                    <span class="inline-flex items-center text-primary font-medium">
+                        點擊查看更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 四格盒灯箱 -->
+    <div id="four-pack-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black/80" id="four-modal-backdrop"></div>
+        <div class="relative z-10 max-w-5xl w-full mx-4">
+            <button id="four-modal-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300">
+                <i class="fa fa-times"></i>
+            </button>
+            <button id="four-prev-image" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden">
+                <img id="four-modal-image" src="" alt="" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+            </div>
+            <button id="four-next-image" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                <i class="fa fa-chevron-right"></i>
+            </button>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
+                <span id="four-image-counter">1/4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 四格盒植纤餐盒（原始区块，默认隐藏） -->
+    <section id="four-grid" class="py-20 bg-white hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">四格盒植纖餐盒</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 四格盒1 -->
+                <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">精緻主菜搭配三種配菜，商務場合首選</p>
+                    </div>
+                </div>
+                
+                <!-- 四格盒2 -->
+                <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">匯集各國風味，一次品嚐多元美食</p>
+                    </div>
+                </div>
+                
+                <!-- 四格盒3 -->
+                <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">低油少鹽，營養配比科學，健康無負擔</p>
+                    </div>
+                </div>
+                
+                <!-- 四格盒4 -->
+                <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">多種精緻點心，適合茶會與小型聚會</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 韓式八格盒封面区块 -->
+    <section id="eight-box-compact" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">韓式八格盒</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">豐盛層次，韓風美味一次擁有，八格分裝各種經典韓式料理</p>
+            
+            <!-- 封面卡片 -->
+            <div id="eight-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer scale-hover">
+                <div class="aspect-[16/9] overflow-hidden">
+                    <img id="eight-cover-image" src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/7a818eb211234d739283621e0e0b544f~tplv-a9rns2rl98-image.image?rcl=202509021531146642D379508647AE4596&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1757403078&amp;x-signature=e4OTXtA6j7zQa9r6VtjHAPFQsg8%3D" alt="" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+                </div>
+                <div class="p-6 text-center">
+                    <span class="inline-flex items-center text-primary font-medium">
+                        點擊查看更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 韓式八格盒灯箱 -->
+    <div id="eight-pack-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black/80" id="eight-modal-backdrop"></div>
+        <div class="relative z-10 max-w-5xl w-full mx-4">
+            <button id="eight-modal-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300">
+                <i class="fa fa-times"></i>
+            </button>
+            <button id="eight-prev-image" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden">
+                <img id="eight-modal-image" src="" alt="" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+            </div>
+            <button id="eight-next-image" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                <i class="fa fa-chevron-right"></i>
+            </button>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
+                <span id="eight-image-counter">1/4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 韩式八格盒（原始区块，默认隐藏） -->
+    <section id="korean-eight" class="py-20 bg-light hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">韓式八格盒</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">豐盛層次，韓風美味一次擁有，八格分裝各種經典韓式料理</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 韩式八格盒1 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">包含韓式烤肉、石鍋拌飯與多種韓式小菜</p>
+                    </div>
+                </div>
+                
+                <!-- 韩式八格盒2 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">還原經典部隊鍋食材，豐富多樣</p>
+                    </div>
+                </div>
+                
+                <!-- 韩式八格盒3 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">新鮮海鮮搭配韓式調味，風味獨特</p>
+                    </div>
+                </div>
+                
+                <!-- 韩式八格盒4 -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2"></h3>
+                        <p class="text-gray-600 text-sm">多種韓式素食料理，健康又美味</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精緻點心餐盒 -->
+    <section id="dessert-boxes" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">精緻點心餐盒</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">多樣化的點心組合，視覺與味覺的雙重享受，適合茶會、慶生等各種輕食場合</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 點心餐盒 1 -->
+                <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/291/600/400" alt="大理石餐盒" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">大理石餐盒</h3>
+                    </div>
+                </div>
+
+                <!-- 點心餐盒 2 -->
+                <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/431/600/400" alt="四格餐盒" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">四格餐盒</h3>
+                    </div>
+                </div>
+
+                <!-- 點心餐盒 3 -->
+                <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/225/600/400" alt="伊蓮娜餐盒" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">伊蓮娜餐盒</h3>
+                    </div>
+                </div>
+
+                <!-- 點心餐盒 4 -->
+                <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/312/600/400" alt="小木片餐盒" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">小木片餐盒</h3>
+                    </div>
+                </div>
+
+                <!-- 點心餐盒 5 -->
+                <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/365/600/400" alt="美饌餐盒" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">美饌餐盒</h3>
+                    </div>
+                </div>
+
+                <!-- 點心餐盒 6 -->
+                <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/fda57534d81445529c6a8439ed30b0dc~tplv-a9rns2rl98-image.image?rcl=202509020950467FB166A465E432780A2C&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1757382648&amp;x-signature=ZH3WUVNVA1z0FTE1fxbEEUVyrlk%3D" alt="大理石六格盒" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">大理石六格盒</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ区块 -->
+    <section id="faq" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">常見問題</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">以下是客戶經常詢問的問題，若有其他疑問歡迎隨時聯繫我們</p>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- Q1 -->
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <summary class="font-bold text-lg p-6 cursor-pointer list-none flex justify-between items-center">
+                        <span>Q1｜最低訂購數量與金額？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        <p>單筆訂單至少 30 盒。建議單價 NT$180／人 起（未稅），不含交通費；運費依地點與時段另計。</p>
+                    </div>
+                </details>
+                
+                <!-- Q2 -->
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <summary class="font-bold text-lg p-6 cursor-pointer list-none flex justify-between items-center">
+                        <span>Q2｜最晚要提早多久預訂？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        <p>建議至少提前 7 天預訂；急單可私訊確認檔期（依當日產能為準）。</p>
+                    </div>
+                </details>
+                
+                <!-- Q3 -->
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <summary class="font-bold text-lg p-6 cursor-pointer list-none flex justify-between items-center">
+                        <span>Q3｜可不辣／低醣／無麩質？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        <p>下單時請先註明；我們可提供不辣／低醣選擇，或移除特定醬料；含麩質品項將提供替代選項。</p>
+                        <p class="mt-2 text-accent italic">提醒：廚房為共用環境，無法保證零交叉過敏原，嚴重過敏者請先行評估。</p>
+                    </div>
+                </details>
+                
+                <!-- Q4 -->
+                <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <summary class="font-bold text-lg p-6 cursor-pointer list-none flex justify-between items-center">
+                        <span>Q4｜可以指定菜單或更換配菜？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        <p>可以。若需指定菜單或更換配菜，請私訊說明需求，我們將依情況客製調整（以食材與產能評估為準）。</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系表单 -->
+    <section id="contact" class="py-20 bg-primary/5">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">聯繫我們</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">填寫以下表單，我們將盡快與您聯繫，為您提供詳細報價與服務說明</p>
+            
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名 *</label>
+                        <input type="text" id="name" name="name" required="" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">電話 *</label>
+                        <input type="tel" id="phone" name="phone" required="" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="budget" class="block text-sm font-medium text-gray-700 mb-1">預算 *</label>
+                        <select id="budget" name="budget" required="" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                            <option value="">請選擇預算範圍</option>
+                            <option value="below3k">3000元以內</option>
+                            <option value="3k-8k">3000 - 8000元</option>
+                            <option value="8k-15k">8000 - 15000元</option>
+                            <option value="15k-30k">15000 - 30000元</option>
+                            <option value="above30k">30000元以上</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="event-type" class="block text-sm font-medium text-gray-700 mb-1">活動類型 *</label>
+                        <select id="event-type" name="event-type" required="" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                            <option value="">請選擇活動類型</option>
+                            <option value="business">商務會議</option>
+                            <option value="company">企業活動</option>
+                            <option value="party">派對聚會</option>
+                            <option value="school">學校活動</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">備註</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="請告訴我們您的特殊需求或疑問..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-primary hover:bg-accent text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                        提交詢問
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fa fa-leaf text-secondary text-2xl"></i>
+                        <span class="font-serif font-bold text-xl">木人艸</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">提供高品質便當與點心餐盒，為各種活動帶來美味體驗。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">快速鏈接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#hero" class="text-gray-400 hover:text-white transition-colors">首頁</a></li>
+                        <li><a href="#two-box-compact" class="text-gray-400 hover:text-white transition-colors">二格盒</a></li>
+                        <li><a href="#four-box-compact" class="text-gray-400 hover:text-white transition-colors">四格盒</a></li>
+                        <li><a href="#eight-box-compact" class="text-gray-400 hover:text-white transition-colors">韓式八格盒</a></li>
+                        <li><a href="#dessert-boxes" class="text-gray-400 hover:text-white transition-colors">點心餐盒</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">聯繫我們</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">聯繫資訊</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-secondary mt-1 mr-3"></i>
+                            <a href="https://maps.google.com/maps?q=台北市士林區後港街185號4樓" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                                台北市士林區後港街185號4樓（點擊開啟 Google 地圖）
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone text-secondary mr-3"></i>
+                            <a href="tel:+886228832113" class="text-gray-400 hover:text-white transition-colors">
+                                02 2883 2113（點擊可直接撥號）
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2023 木人艸便當餐盒. 保留所有權利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-accent">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <!-- 原有JavaScript -->
+    <script>
+        // 表单提交处理
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 简单的表单验证
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            
+            if (!name || !phone) {
+                alert('請填寫姓名和電話');
+                return;
+            }
+            
+            // 模拟表单提交
+            alert('感謝您的詢問！我們將盡快與您聯繫。');
+            this.reset();
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 返回顶部按钮
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+            
+            // 导航栏滚动效果
+            const header = document.querySelector('header');
+            if (window.pageYOffset > 100) {
+                header.classList.add('py-2', 'shadow');
+                header.classList.remove('py-3');
+            } else {
+                header.classList.add('py-3');
+                header.classList.remove('py-2', 'shadow');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 图片加载动画
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img');
+            
+            images.forEach(img => {
+                img.classList.add('opacity-0', 'transition-opacity', 'duration-700');
+                
+                img.onload = function() {
+                    this.classList.remove('opacity-0');
+                    this.classList.add('opacity-100');
+                }
+                
+                // 如果图片已经缓存
+                if (img.complete) {
+                    img.classList.remove('opacity-0');
+                    img.classList.add('opacity-100');
+                }
+            });
+        });
+    </script>
+
+    <!-- 二格盒初始化脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 工具函数：处理封面与灯箱逻辑
+        const initLightboxModule = (options) => {
+            const {
+                oldSectionId,        // 旧区块ID
+                newSectionId,        // 新封面区块ID
+                coverImageId,        // 封面图片ID
+                coverContainerId,    // 封面容器ID
+                modalId,             // 灯箱ID
+                modalImageId,        // 灯箱图片ID
+                modalCloseId,        // 灯箱关闭按钮ID
+                modalBackdropId,     // 灯箱遮罩ID
+                prevBtnId,           // 上一张按钮ID
+                nextBtnId,           // 下一张按钮ID
+                counterId,           // 图片计数器ID
+                moduleName           // 模块名称（用于错误信息）
+            } = options;
+
+            try {
+                // 1. 获取核心元素
+                const oldSection = document.getElementById(oldSectionId);
+                const coverImage = document.getElementById(coverImageId);
+                const coverContainer = document.getElementById(coverContainerId);
+                const modal = document.getElementById(modalId);
+                const modalImage = document.getElementById(modalImageId);
+                const modalClose = document.getElementById(modalCloseId);
+                const modalBackdrop = document.getElementById(modalBackdropId);
+                const prevBtn = document.getElementById(prevBtnId);
+                const nextBtn = document.getElementById(nextBtnId);
+                const counter = document.getElementById(counterId);
+
+                // 元素不存在则终止（避免报错）
+                if (!oldSection || !coverImage || !coverContainer || !modal || !modalImage) return;
+
+                // 2. 从旧区块获取前4张图片
+                const oldImages = Array.from(oldSection.querySelectorAll('img')).slice(0, 4);
+                if (oldImages.length === 0) return;
+
+                // 3. 设置封面图片（第一张）
+                coverImage.src = oldImages[0].src;
+                coverImage.alt = oldImages[0].alt || `${moduleName}封面`;
+                // 触发图片加载动画
+                coverImage.onload = () => coverImage.classList.add('opacity-100');
+                if (coverImage.complete) coverImage.classList.add('opacity-100');
+
+                // 4. 隐藏旧区块（只视觉隐藏，不删除）
+                oldSection.classList.add('hidden');
+
+                // 5. 灯箱核心逻辑
+                let currentIndex = 0;
+                const totalImages = oldImages.length;
+
+                // 更新灯箱内容
+                const updateModal = (index) => {
+                    currentIndex = Math.max(0, Math.min(index, totalImages - 1));
+                    const targetImg = oldImages[currentIndex];
+                    modalImage.src = targetImg.src;
+                    modalImage.alt = targetImg.alt || `${moduleName} ${currentIndex + 1}`;
+                    counter.textContent = `${currentIndex + 1}/${totalImages}`;
+                    // 灯箱图片加载动画
+                    modalImage.onload = () => modalImage.classList.add('opacity-100');
+                    if (modalImage.complete) modalImage.classList.add('opacity-100');
+                };
+
+                // 打开灯箱
+                const openModal = () => {
+                    updateModal(0);
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    // 重置灯箱图片透明度（下次打开重新触发动画）
+                    modalImage.classList.remove('opacity-100');
+                };
+
+                // 关闭灯箱
+                const closeModal = () => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                };
+
+                // 6. 绑定灯箱事件
+                // 封面容器点击打开灯箱
+                coverContainer.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'SPAN' && e.target.tagName !== 'I') openModal();
+                });
+
+                // 关闭按钮/遮罩点击关闭
+                if (modalClose) modalClose.addEventListener('click', closeModal);
+                if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+                // 上一张/下一张切换
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        modalImage.classList.remove('opacity-100');
+                        updateModal(currentIndex - 1);
+                    });
+                }
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        modalImage.classList.remove('opacity-100');
+                        updateModal(currentIndex + 1);
+                    });
+                }
+
+                // 7. 键盘控制（Esc关闭、左右键切换）
+                document.addEventListener('keydown', (e) => {
+                    if (!modal.classList.contains('hidden')) {
+                        // Esc关闭
+                        if (e.key === 'Escape') closeModal();
+                        // 左箭头：上一张
+                        if (e.key === 'ArrowLeft' && prevBtn) {
+                            modalImage.classList.remove('opacity-100');
+                            updateModal(currentIndex - 1);
+                        }
+                        // 右箭头：下一张
+                        if (e.key === 'ArrowRight' && nextBtn) {
+                            modalImage.classList.remove('opacity-100');
+                            updateModal(currentIndex + 1);
+                        }
+                    }
+                });
+
+            } catch (error) {
+                // 捕获错误（不影响其他模块）
+                console.error(`初始化${moduleName}模块失败:`, error);
+            }
+        };
+
+        // 初始化「二格盒」模块
+        initLightboxModule({
+            oldSectionId: 'two-grid',
+            newSectionId: 'two-box-compact',
+            coverImageId: 'cover-image',
+            coverContainerId: 'two-box-cover',
+            modalId: 'two-pack-modal',
+            modalImageId: 'modal-image',
+            modalCloseId: 'modal-close',
+            modalBackdropId: 'modal-backdrop',
+            prevBtnId: 'prev-image',
+            nextBtnId: 'next-image',
+            counterId: 'image-counter',
+            moduleName: '二格盒餐盒'
+        });
+    });
+    </script>
+
+    <!-- 四格盒和韩式八格盒初始化脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 工具函数：处理封面与灯箱逻辑（避免重复代码）
+        const initLightboxModule = (options) => {
+            const {
+                oldSectionId,        // 旧区块ID
+                newSectionId,        // 新封面区块ID
+                coverImageId,        // 封面图片ID
+                coverContainerId,    // 封面容器ID
+                modalId,             // 灯箱ID
+                modalImageId,        // 灯箱图片ID
+                modalCloseId,        // 灯箱关闭按钮ID
+                modalBackdropId,     // 灯箱遮罩ID
+                prevBtnId,           // 上一张按钮ID
+                nextBtnId,           // 下一张按钮ID
+                counterId,           // 图片计数器ID
+                moduleName           // 模块名称
+            } = options;
+
+            try {
+                // 1. 获取核心元素
+                const oldSection = document.getElementById(oldSectionId);
+                const coverImage = document.getElementById(coverImageId);
+                const coverContainer = document.getElementById(coverContainerId);
+                const modal = document.getElementById(modalId);
+                const modalImage = document.getElementById(modalImageId);
+                const modalClose = document.getElementById(modalCloseId);
+                const modalBackdrop = document.getElementById(modalBackdropId);
+                const prevBtn = document.getElementById(prevBtnId);
+                const nextBtn = document.getElementById(nextBtnId);
+                const counter = document.getElementById(counterId);
+
+                // 元素不存在则终止（避免报错）
+                if (!oldSection || !coverImage || !coverContainer || !modal || !modalImage) return;
+
+                // 2. 从旧区块获取前4张图片
+                const oldImages = Array.from(oldSection.querySelectorAll('img')).slice(0, 4);
+                if (oldImages.length === 0) return;
+
+                // 3. 设置封面图片（第一张）
+                coverImage.src = oldImages[0].src;
+                coverImage.alt = oldImages[0].alt || `${options.moduleName}封面`;
+                // 触发图片加载动画
+                coverImage.onload = () => coverImage.classList.add('opacity-100');
+                if (coverImage.complete) coverImage.classList.add('opacity-100');
+
+                // 4. 隐藏旧区块（只视觉隐藏，不删除）
+                oldSection.classList.add('hidden');
+
+                // 5. 灯箱核心逻辑
+                let currentIndex = 0;
+                const totalImages = oldImages.length;
+
+                // 更新灯箱内容
+                const updateModal = (index) => {
+                    currentIndex = Math.max(0, Math.min(index, totalImages - 1));
+                    const targetImg = oldImages[currentIndex];
+                    modalImage.src = targetImg.src;
+                    modalImage.alt = targetImg.alt || `${options.moduleName} ${currentIndex + 1}`;
+                    counter.textContent = `${currentIndex + 1}/${totalImages}`;
+                    // 灯箱图片加载动画
+                    modalImage.onload = () => modalImage.classList.add('opacity-100');
+                    if (modalImage.complete) modalImage.classList.add('opacity-100');
+                };
+
+                // 打开灯箱
+                const openModal = () => {
+                    updateModal(0);
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    // 重置灯箱图片透明度（下次打开重新触发动画）
+                    modalImage.classList.remove('opacity-100');
+                };
+
+                // 关闭灯箱
+                const closeModal = () => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                };
+
+                // 6. 绑定灯箱事件
+                // 封面容器点击打开灯箱
+                coverContainer.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'SPAN' && e.target.tagName !== 'I') openModal();
+                });
+
+                // 关闭按钮/遮罩点击关闭
+                if (modalClose) modalClose.addEventListener('click', closeModal);
+                if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+                // 上一张/下一张切换
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        modalImage.classList.remove('opacity-100');
+                        updateModal(currentIndex - 1);
+                    });
+                }
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        modalImage.classList.remove('opacity-100');
+                        updateModal(currentIndex + 1);
+                    });
+                }
+
+                // 7. 键盘控制（Esc关闭、左右键切换）
+                document.addEventListener('keydown', (e) => {
+                    if (!modal.classList.contains('hidden')) {
+                        // Esc关闭
+                        if (e.key === 'Escape') closeModal();
+                        // 左箭头：上一张
+                        if (e.key === 'ArrowLeft' && prevBtn) {
+                            modalImage.classList.remove('opacity-100');
+                            updateModal(currentIndex - 1);
+                        }
+                        // 右箭头：下一张
+                        if (e.key === 'ArrowRight' && nextBtn) {
+                            modalImage.classList.remove('opacity-100');
+                            updateModal(currentIndex + 1);
+                        }
+                    }
+                });
+
+            } catch (error) {
+                // 捕获错误（不影响其他模块）
+                console.error(`初始化${options.moduleName}模块失败:`, error);
+            }
+        };
+
+        // 1. 初始化「四格盒」模块
+        initLightboxModule({
+            oldSectionId: 'four-grid',
+            newSectionId: 'four-box-compact',
+            coverImageId: 'four-cover-image',
+            coverContainerId: 'four-box-cover',
+            modalId: 'four-pack-modal',
+            modalImageId: 'four-modal-image',
+            modalCloseId: 'four-modal-close',
+            modalBackdropId: 'four-modal-backdrop',
+            prevBtnId: 'four-prev-image',
+            nextBtnId: 'four-next-image',
+            counterId: 'four-image-counter',
+            moduleName: '四格盒植纖餐盒'
+        });
+
+        // 2. 初始化「韓式八格盒」模块
+        initLightboxModule({
+            oldSectionId: 'korean-eight',
+            newSectionId: 'eight-box-compact',
+            coverImageId: 'eight-cover-image',
+            coverContainerId: 'eight-box-cover',
+            modalId: 'eight-pack-modal',
+            modalImageId: 'eight-modal-image',
+            modalCloseId: 'eight-modal-close',
+            modalBackdropId: 'eight-modal-backdrop',
+            prevBtnId: 'eight-prev-image',
+            nextBtnId: 'eight-next-image',
+            counterId: 'eight-image-counter',
+            moduleName: '韓式八格盒'
+        });
+
+        // 3. 修改导航链接：a[href="#four-grid"] → #four-box-compact
+        const fourLinks = document.querySelectorAll('a[href="#four-grid"]');
+        fourLinks.forEach(link => link.setAttribute('href', '#four-box-compact'));
+
+        // 4. 修改导航链接：a[href="#korean-eight"] → #eight-box-compact
+        const eightLinks = document.querySelectorAll('a[href="#korean-eight"]');
+        eightLinks.forEach(link => link.setAttribute('href', '#eight-box-compact'));
+
+        // 5. 为新封面区块添加平滑滚动
+        const newSectionLinks = document.querySelectorAll('a[href="#four-box-compact"], a[href="#eight-box-compact"]');
+        newSectionLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const header = document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 80;
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - headerHeight,
+                        behavior: 'smooth'
+                    });
+                    // 保留URL哈希
+                    history.replaceState(null, document.title, targetId);
+                }
+            });
+        });
+
+    } catch (globalError) {
+        console.error('封面与灯箱模块初始化全局错误:', globalError);
+    }
+});
+</script>
+
+    <!-- FAQ初始化脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 寻找并移除"適用於各種場合"区块
+        try {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const h2 = section.querySelector('h2');
+                if (h2 && h2.textContent.includes('適用於各種場合')) {
+                    section.remove();
+                }
+            });
+        } catch (error) {
+            // 不报错，保持静默失败
+        }
+
+        // 为details添加展开/折叠动画效果
+        const detailsElements = document.querySelectorAll('#faq details');
+        detailsElements.forEach(details => {
+            details.addEventListener('toggle', function() {
+                const icon = this.querySelector('i');
+                if (this.open) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0)';
+                }
+            });
+        });
+    });
+    </script>
+
+    <!-- 页尾联系信息修改脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            // 找到标题包含「聯繫資訊」的栏
+            const contactSection = Array.from(document.querySelectorAll('footer h3'))
+                .find(h3 => h3.textContent.includes('聯繫資訊'))
+                ?.closest('div');
+            
+            if (!contactSection) return;
+            
+            // 获取所有列表项
+            const listItems = contactSection.querySelectorAll('li');
+            
+            // 处理地址项
+            const addressItem = Array.from(listItems).find(item => 
+                item.querySelector('.fa-map-marker')
+            );
+            if (addressItem) {
+                const span = addressItem.querySelector('span');
+                const classes = span ? Array.from(span.classList).join(' ') : 'text-gray-400 hover:text-white transition-colors';
+                addressItem.innerHTML = `
+                    <i class="fa fa-map-marker text-secondary mt-1 mr-3"></i>
+                    <a href="https://maps.google.com/maps?q=台北市士林區後港街185號4樓" target="_blank" class="${classes}">
+                        台北市士林區後港街185號4樓（點擊開啟 Google 地圖）
+                    </a>
+                `;
+            }
+            
+            // 处理电话项
+            const phoneItem = Array.from(listItems).find(item => 
+                item.querySelector('.fa-phone')
+            );
+            if (phoneItem) {
+                const span = phoneItem.querySelector('span');
+                const classes = span ? Array.from(span.classList).join(' ') : 'text-gray-400 hover:text-white transition-colors';
+                phoneItem.innerHTML = `
+                    <i class="fa fa-phone text-secondary mr-3"></i>
+                    <a href="tel:+886228832113" class="${classes}">
+                        02 2883 2113（點擊可直接撥號）
+                    </a>
+                `;
+            }
+            
+            // 删除邮箱项
+            const emailItem = Array.from(listItems).find(item => 
+                item.querySelector('.fa-envelope')
+            );
+            if (emailItem) {
+                emailItem.remove();
+            }
+        } catch (error) {
+            // 静默失败，不报错
+        }
+    });
+    </script>
+
+    <!-- 页尾社交链接更新脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            // 找到包含Facebook和Instagram图标的社群区域
+            const socialContainer = Array.from(document.querySelectorAll('footer .flex.space-x-4'))
+                .find(container => 
+                    container.querySelector('.fa-facebook') && 
+                    container.querySelector('.fa-instagram')
+                );
+            
+            if (!socialContainer) return;
+            
+            // 获取现有链接的样式类
+            const existingLink = socialContainer.querySelector('a');
+            const linkClasses = existingLink ? Array.from(existingLink.classList).join(' ') : 'text-gray-400 hover:text-white transition-colors';
+            
+            // 更新Facebook链接
+            const fbLink = socialContainer.querySelector('.fa-facebook').closest('a');
+            if (fbLink) {
+                fbLink.href = 'https://www.facebook.com/profile.php?id=61554825134056';
+                fbLink.target = '_blank';
+                fbLink.title = '木人艸臉書粉絲頁';
+            }
+            
+            // 更新Instagram链接
+            const igLink = socialContainer.querySelector('.fa-instagram').closest('a');
+            if (igLink) {
+                igLink.href = 'https://www.instagram.com/murencao_food/';
+                igLink.target = '_blank';
+                igLink.title = '木人艸Instagram帳號';
+            }
+            
+        } catch (error) {
+            // 静默失败，不报错
+        }
+    });
+    </script>
+
+    <!-- 移除點心餐盒描述段落的補丁 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            // 只針對#dessert-boxes區塊內的特定元素操作
+            const dessertBoxes = document.getElementById('dessert-boxes');
+            if (!dessertBoxes) return;
+            
+            // 找到所有符合條件的卡片內文容器
+            const contentContainers = dessertBoxes.querySelectorAll('.bg-light.rounded-xl .p-5');
+            if (contentContainers.length === 0) return;
+            
+            // 遍歷容器並移除描述段落
+            contentContainers.forEach(container => {
+                const description = container.querySelector('p.text-gray-600.text-sm');
+                if (description) {
+                    description.remove();
+                }
+            });
+        } catch (error) {
+            // 靜默跳過錯誤，不影響其他功能
+        }
+    });
+    </script>
+
+    <!-- 更新footer社交图标为Font Awesome 6品牌类名的补丁脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        try {
+            // 查找包含社交媒体图标的容器
+            const container = Array.from(document.querySelectorAll('footer .flex.space-x-4'))
+                .find(el => el.querySelector('.fa-facebook') || el.querySelector('.fa-instagram'));
+            if (!container) return;
+
+            // 获取现有链接的样式类
+            const linkClass = container.querySelector('a')?.className || 'text-gray-400 hover:text-white transition-colors';
+
+            // 更新Facebook图标为FA6品牌类名
+            const fbIcon = container.querySelector('.fa-facebook');
+            if (fbIcon) {
+                fbIcon.className = 'fa-brands fa-facebook-f';
+                const fbLink = fbIcon.closest('a');
+                if (fbLink) {
+                    fbLink.href = 'https://www.facebook.com/profile.php?id=61554825134056';
+                    fbLink.target = '_blank';
+                    fbLink.rel = 'noopener noreferrer';
+                }
+            }
+
+            // 更新Instagram图标为FA6品牌类名
+            const igIcon = container.querySelector('.fa-instagram');
+            if (igIcon) {
+                igIcon.className = 'fa-brands fa-instagram';
+                const igLink = igIcon.closest('a');
+                if (igLink) {
+                    igLink.href = 'https://www.instagram.com/murencao_food/';
+                    igLink.target = '_blank';
+                    igLink.rel = 'noopener noreferrer';
+                }
+            }
+
+            // 检查是否已有LINE图标，若无则添加
+            if (!container.querySelector('.fa-line')) {
+                const lineLink = document.createElement('a');
+                lineLink.className = linkClass;
+                lineLink.href = 'https://lin.ee/WMJkjav';
+                lineLink.target = '_blank';
+                lineLink.rel = 'noopener noreferrer';
+                lineLink.innerHTML = '<i class="fa-brands fa-line"></i>';
+                container.appendChild(lineLink);
+            }
+
+            // 稍微增大图标尺寸
+            const style = document.createElement('style');
+            style.textContent = 'footer .fa-brands { font-size: 1.25rem; }';
+            document.head.appendChild(style);
+        } catch (e) {
+            // 静默失败，不影响其他功能
+        }
+    });
+    </script>
+
+    <!-- 更新图片和标题的脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dataSets = {
+            two: [
+                { src: '/images/two/主菜 日式鹽麴雞腿排.png', title: '日式鹽麴雞腿排' },
+                { src: '/images/two/主菜 法式油封杏鮑菇(素).png', title: '法式油封杏鮑菇(素)' },
+                { src: '/images/two/主菜 蔥油雞胸肉.png', title: '蔥油雞胸肉' },
+                { src: '/images/two/主菜 獨家香料鹹豬肉.png', title: '獨家香料鹹豬肉' }
+            ],
+            four: [
+                { src: '/images/four/主菜 四格1.png', title: '四格盒餐盒1' },
+                { src: '/images/four/主菜 四格2.png', title: '四格盒餐盒2' },
+                { src: '/images/four/主菜 四格3.png', title: '四格盒餐盒3' },
+                { src: '/images/four/主菜 四格4.png', title: '四格盒餐盒4' }
+            ],
+            eight: [
+                { src: '/images/eight/主菜 八格1.png', title: '八格盒餐盒1' },
+                { src: '/images/eight/主菜 八格2.png', title: '八格盒餐盒2' },
+                { src: '/images/eight/主菜 八格3.png', title: '八格盒餐盒3' },
+                { src: '/images/eight/主菜 八格4.png', title: '八格盒餐盒4' }
+            ]
+        };
+
+        // 工具函数：更新网格卡片的图片和标题
+        const updateGridCards = (gridId, data) => {
+            const grid = document.getElementById(gridId);
+            if (!grid) return;
+            const cards = grid.querySelectorAll('.rounded-xl');
+            data.forEach((item, index) => {
+                if (cards[index]) {
+                    const img = cards[index].querySelector('img');
+                    const h3 = cards[index].querySelector('h3');
+                    if (img && h3) {
+                        img.src = item.src;
+                        img.alt = item.title;
+                        img.loading = 'lazy';
+                        h3.textContent = item.title;
+                    }
+                }
+            });
+        };
+
+        // 工具函数：初始化封面与灯箱逻辑
+        const initLightboxModule = (options) => {
+            const {
+                coverImageId, coverContainerId, modalId, modalImageId,
+                modalCloseId, modalBackdropId, prevBtnId, nextBtnId,
+                counterId, moduleName, images
+            } = options;
+
+            try {
+                const coverImage = document.getElementById(coverImageId);
+                const coverContainer = document.getElementById(coverContainerId);
+                const modal = document.getElementById(modalId);
+                const modalImage = document.getElementById(modalImageId);
+                const modalClose = document.getElementById(modalCloseId);
+                const modalBackdrop = document.getElementById(modalBackdropId);
+                const prevBtn = document.getElementById(prevBtnId);
+                const nextBtn = document.getElementById(nextBtnId);
+                const counter = document.getElementById(counterId);
+
+                if (!coverImage || !coverContainer || !modal || !modalImage || images.length === 0) return;
+
+                // 设置封面图片（第一张）
+                coverImage.src = images[0].src;
+                coverImage.alt = images[0].title;
+                coverImage.loading = 'lazy';
+                coverImage.onload = () => coverImage.classList.add('opacity-100');
+                if (coverImage.complete) coverImage.classList.add('opacity-100');
+
+                // 灯箱核心逻辑
+                let currentIndex = 0;
+                const totalImages = images.length;
+
+                const updateModal = (index) => {
+                    currentIndex = Math.max(0, Math.min(index, totalImages - 1));
+                    const targetImg = images[currentIndex];
+                    modalImage.src = targetImg.src;
+                    modalImage.alt = targetImg.title;
+                    modalImage.loading = 'lazy';
+                    counter.textContent = `${currentIndex + 1}/${totalImages}`;
+                    modalImage.onload = () => modalImage.classList.add('opacity-100');
+                    if (modalImage.complete) modalImage.classList.add('opacity-100');
+                };
+
+                const openModal = () => {
+                    updateModal(0);
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    modalImage.classList.remove('opacity-100');
+                };
+
+                const closeModal = () => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                };
+
+                // 绑定事件
+                coverContainer.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'SPAN' && e.target.tagName !== 'I') openModal();
+                });
+                if (modalClose) modalClose.addEventListener('click', closeModal);
+                if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+                if (prevBtn) prevBtn.addEventListener('click', () => {
+                    modalImage.classList.remove('opacity-100');
+                    updateModal(currentIndex - 1);
+                });
+                if (nextBtn) nextBtn.addEventListener('click', () => {
+                    modalImage.classList.remove('opacity-100');
+                    updateModal(currentIndex + 1);
+                });
+
+                // 键盘控制
+                document.addEventListener('keydown', (e) => {
+                    if (!modal.classList.contains('hidden')) {
+                        if (e.key === 'Escape') closeModal();
+                        if (e.key === 'ArrowLeft' && prevBtn) {
+                            modalImage.classList.remove('opacity-100');
+                            updateModal(currentIndex - 1);
+                        }
+                        if (e.key === 'ArrowRight' && nextBtn) {
+                            modalImage.classList.remove('opacity-100');
+                            updateModal(currentIndex + 1);
+                        }
+                    }
+                });
+
+            } catch (error) {
+                console.error(`初始化${moduleName}模块失败:`, error);
+            }
+        };
+
+        // 更新各区块卡片
+        updateGridCards('two-grid', dataSets.two);
+        updateGridCards('four-grid', dataSets.four);
+        updateGridCards('korean-eight', dataSets.eight);
+
+        // 初始化二格盒封面与灯箱
+        initLightboxModule({
+            coverImageId: 'cover-image',
+            coverContainerId: 'two-box-cover',
+            modalId: 'two-pack-modal',
+            modalImageId: 'modal-image',
+            modalCloseId: 'modal-close',
+            modalBackdropId: 'modal-backdrop',
+            prevBtnId: 'prev-image',
+            nextBtnId: 'next-image',
+            counterId: 'image-counter',
+            moduleName: '二格盒餐盒',
+            images: dataSets.two
+        });
+
+        // 初始化四格盒封面与灯箱
+        initLightboxModule({
+            coverImageId: 'four-cover-image',
+            coverContainerId: 'four-box-cover',
+            modalId: 'four-pack-modal',
+            modalImageId: 'four-modal-image',
+            modalCloseId: 'four-modal-close',
+            modalBackdropId: 'four-modal-backdrop',
+            prevBtnId: 'four-prev-image',
+            nextBtnId: 'four-next-image',
+            counterId: 'four-image-counter',
+            moduleName: '四格盒植纖餐盒',
+            images: dataSets.four
+        });
+
+        // 初始化八格盒封面与灯箱
+        initLightboxModule({
+            coverImageId: 'eight-cover-image',
+            coverContainerId: 'eight-box-cover',
+            modalId: 'eight-pack-modal',
+            modalImageId: 'eight-modal-image',
+            modalCloseId: 'eight-modal-close',
+            modalBackdropId: 'eight-modal-backdrop',
+            prevBtnId: 'eight-prev-image',
+            nextBtnId: 'eight-next-image',
+            counterId: 'eight-image-counter',
+            moduleName: '韓式八格盒',
+            images: dataSets.eight
+        });
+    });
+    </script>
+
+
+    </body></html>

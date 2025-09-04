@@ -12,11 +12,11 @@
       theme: {
         extend: {
           colors: {
-            primary: '#8B5A2B',      // 木色主色調
-            secondary: '#D2B48C',    // 淺木色
-            accent: '#CD853F',       // 棕色強調
-            light: '#F5F5DC',        // 米白色背景
-            dark: '#3E2723',         // 深棕色文字
+            primary: '#8B5A2B',
+            secondary: '#D2B48C',
+            accent: '#CD853F',
+            light: '#F5F5DC',
+            dark: '#3E2723',
           },
           fontFamily: {
             sans: ['Noto Sans TC', 'sans-serif'],
@@ -141,7 +141,6 @@
       <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
       <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">經典設計，主食與配菜完美分離，簡約大方又實用</p>
 
-      <!-- 封面卡片 -->
       <div id="two-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer scale-hover">
         <div class="aspect-[16/9] overflow-hidden">
           <img id="cover-image" src="" alt="二格盒封面" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
@@ -177,7 +176,7 @@
     </div>
   </div>
 
-  <!-- 二格盒（舊網格，預設隱藏；供資料補齊用，可保留 SEO ） -->
+  <!-- 二格盒（舊網格，預設隱藏） -->
   <section id="two-grid" class="py-20 bg-light hidden">
     <div class="container mx-auto px-4">
       <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
@@ -231,7 +230,7 @@
   <section id="four-box-compact" class="py-20 bg-white">
     <div class="container mx-auto px-4">
       <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">四格盒植纖餐盒</h2>
-      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
+    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
 
       <div id="four-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer scale-hover">
         <div class="aspect-[16/9] overflow-hidden">
@@ -721,7 +720,7 @@
   <!-- 圖片/標題資料集 + 封面與燈箱模組（統一版本） -->
   <script>
     document.addEventListener('DOMContentLoaded', function(){
-      // 1) 資料集（使用相對路徑，避免 GitHub Pages 子路徑 404）
+      // 1) 資料集
       const dataSets = {
         two: [
           { src: './images/two/主菜 日式鹽麴雞腿排.png', title: '日式鹽麴雞腿排' },
@@ -765,7 +764,7 @@
       updateGridCards('four-grid', dataSets.four);
       updateGridCards('korean-eight', dataSets.eight);
 
-      // 3) 封面+燈箱模組（單一來源：dataSets）
+      // 3) 封面+燈箱模組
       const initLightboxModule = (opts)=>{
         const {
           coverImageId, coverContainerId,
@@ -853,7 +852,7 @@
         }
       };
 
-      // 4) 初始化三個模組
+      // 4) 初始化模組
       initLightboxModule({
         coverImageId:'cover-image',
         coverContainerId:'two-box-cover',
@@ -895,6 +894,41 @@
         moduleName:'韓式八格盒',
         images: dataSets.eight
       });
+    });
+  </script>
+
+  <!-- 鎖圖補丁（避免 #dessert-boxes 的圖片被其他腳本覆蓋；並修正大理石六格盒） -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 鎖住 #dessert-boxes 裡的所有圖片
+      document.querySelectorAll('#dessert-boxes img').forEach(img => {
+        img.setAttribute('data-lock', 'true');
+      });
+
+      // 指定「大理石六格盒」的圖片（可改成你的正式檔案路徑）
+      const FIXED_MARBLE_IMG = null; // 例如 './images/dessert/大理石六格盒.jpg'
+      const cards = document.querySelectorAll('#dessert-boxes .bg-light.rounded-xl');
+      cards.forEach(card => {
+        const title = card.querySelector('h3')?.textContent?.trim();
+        if (title === '大理石六格盒') {
+          const img = card.querySelector('img');
+          if (img) {
+            const src = FIXED_MARBLE_IMG || img.getAttribute('src') || '';
+            const v = src.includes('?') ? '&v=2' : '?v=2';
+            img.src = src + v; // 破快取
+            img.alt = '大理石六格盒';
+          }
+        }
+      });
+
+      // 全域保護：之後若有腳本想改「被鎖住圖片」的 src，就忽略
+      const _setAttr = Element.prototype.setAttribute;
+      Element.prototype.setAttribute = function(name, value) {
+        if (name === 'src' && this.tagName === 'IMG' && this.getAttribute('data-lock') === 'true') {
+          return; // 被鎖住的點心餐盒圖片不允許改 src
+        }
+        return _setAttr.apply(this, arguments);
+      };
     });
   </script>
 

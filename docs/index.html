@@ -422,69 +422,36 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
     <!-- 精緻點心餐盒（先用 Picsum 佔位圖；之後可換成本地路徑） -->
- <!-- 精緻點心餐盒（先用 Picsum 佔位圖；之後可換成本地路徑） -->
-  <section id="dessert-boxes" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">精緻點心餐盒</h2>
-      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">多樣化的點心組合，視覺與味覺的雙重享受，適合茶會、慶生等各種輕食場合</p>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // 依卡片標題 -> 指定圖片（路徑以 docs 為相對根）
+  // 如果「大理石抽屜盒.jpg」真的在 docs/cs/ 底下，請用 './cs/大理石抽屜盒.jpg'
+  const dessertMap = {
+    '大理石餐盒':   './大理石抽屜盒.jpg',   // 或 './cs/大理石抽屜盒.jpg'
+    '四格餐盒':     './四格餐盒.jpg',
+    '伊蓮娜餐盒':   './伊蓮娜餐盒.jpg',
+    '小木片餐盒':   './小木片餐盒.jpg',
+    '美饌餐盒':     './美饌餐盒.jpg',
+    '大理石六格盒': './大理石六格盒.jpg'
+  };
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-          <div class="h-60 overflow-hidden">
-            <img src="https://picsum.photos/id/291/600/400" alt="大理石餐盒" class="w-full h-full object-cover" loading="lazy">
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-lg mb-2">大理石餐盒</h3>
-          </div>
-        </div>
+  const cards = document.querySelectorAll('#dessert-boxes .bg-light.rounded-xl');
+  const versionBuster = '?v=8';
 
-        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-          <div class="h-60 overflow-hidden">
-            <img src="https://picsum.photos/id/431/600/400" alt="四格餐盒" class="w-full h-full object-cover" loading="lazy">
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-lg mb-2">四格餐盒</h3>
-          </div>
-        </div>
+  cards.forEach(card => {
+    const img   = card.querySelector('img');
+    const title = card.querySelector('h3')?.textContent?.trim();
+    const src   = dessertMap[title];
 
-        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-          <div class="h-60 overflow-hidden">
-            <img src="https://picsum.photos/id/225/600/400" alt="伊蓮娜餐盒" class="w-full h-full object-cover" loading="lazy">
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-lg mb-2">伊蓮娜餐盒</h3>
-          </div>
-        </div>
+    if (!img || !src) return;
 
-        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-          <div class="h-60 overflow-hidden">
-            <img src="https://picsum.photos/id/312/600/400" alt="小木片餐盒" class="w-full h-full object-cover" loading="lazy">
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-lg mb-2">小木片餐盒</h3>
-          </div>
-        </div>
-
-        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-          <div class="h-60 overflow-hidden">
-            <img src="https://picsum.photos/id/365/600/400" alt="美饌餐盒" class="w-full h-full object-cover" loading="lazy">
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-lg mb-2">美饌餐盒</h3>
-          </div>
-        </div>
-
-        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-          <div class="h-60 overflow-hidden">
-            <img src="https://picsum.photos/id/103/600/400" alt="大理石六格盒" class="w-full h-full object-cover" loading="lazy">
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-lg mb-2">大理石六格盒</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    // 若之前有「鎖圖」屬性，先解鎖再換圖
+    img.removeAttribute('data-lock');
+    img.src = src + versionBuster;
+    img.alt = title;
+  });
+});
+</script>
     <!-- FAQ -->
     <section id="faq" class="py-20 bg-light">
       <div class="container mx-auto px-4">

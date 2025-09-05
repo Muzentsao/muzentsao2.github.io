@@ -423,36 +423,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- 精緻點心餐盒（先用 Picsum 佔位圖；之後可換成本地路徑） -->
 <!-- 精緻點心餐盒：改成本地圖片（放在 </body> 之前即可） -->
+<!-- 精緻點心餐盒：換成本地圖片（只影響 #dessert-boxes） -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // 依卡片順序：大理石餐盒、四格餐盒、伊蓮娜餐盒、小木片餐盒、美饌餐盒、大理石六格盒
-  const newDessertImages = [
-    { title: '大理石餐盒',  src: '../cs/大理石抽屜盒.jpg' }, // ← cs 在 docs 外層，所以 ../cs/...
-    { title: '四格餐盒',    src: './四格餐盒.jpg' },
-    { title: '伊蓮娜餐盒',  src: './伊蓮娜餐盒.jpg' },
-    { title: '小木片餐盒',  src: './小木片餐盒.jpg' },
-    { title: '美饌餐盒',    src: './美饌餐盒.jpg' },
-    { title: '大理石六格盒', src: './大理石六格盒.jpg' }
+  // 依目前卡片顯示順序：大理石餐盒、四格餐盒、伊蓮娜餐盒、小木片餐盒、美饌餐盒、大理石六格盒
+  const imgs = [
+    '../cs/大理石抽屜盒.jpg',   // cs 在 docs 之外 → 用 ../cs/...
+    './四格餐盒.jpg',          // 其餘都在 docs/ → 用 ./檔名
+    './伊蓮娜餐盒.jpg',
+    './小木片餐盒.jpg',
+    './美饌餐盒.jpg',
+    './大理石六格盒.jpg'
   ];
+  const titles = ['大理石餐盒','四格餐盒','伊蓮娜餐盒','小木片餐盒','美饌餐盒','大理石六格盒'];
 
-  // 只更新 #dessert-boxes 這一區
   const cards = document.querySelectorAll('#dessert-boxes .bg-light.rounded-xl');
-  const versionBuster = '?v=7'; // 要破快取就改這個數字
+  const bust  = '?v=6'; // 想破快取就改數字
 
-  newDessertImages.forEach((item, i) => {
-    const card = cards[i];
-    if (!card) return;
-
+  cards.forEach((card, i) => {
     const img = card.querySelector('img');
     const h3  = card.querySelector('h3');
+    if (!img) return;
 
-    if (img) {
-      // 解除先前的鎖定，並用屬性賦值方式設定 src
-      img.removeAttribute('data-lock');
-      img.src = item.src + versionBuster;
-      img.alt = item.title;
-    }
-    if (h3) h3.textContent = item.title;
+    // 解除先前的鎖定，並用屬性賦值方式更換圖片（不走 setAttribute）
+    img.removeAttribute('data-lock');
+    img.src = imgs[i] + bust;
+    img.alt = titles[i];
+
+    if (h3) h3.textContent = titles[i];
   });
 });
 </script>

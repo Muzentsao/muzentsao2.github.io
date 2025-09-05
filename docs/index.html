@@ -422,101 +422,40 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
     <!-- 精緻點心餐盒（先用 Picsum 佔位圖；之後可換成本地路徑） -->
-    <section id="dessert-boxes" class="py-20 bg-white">
-      <div class="container mx-auto px-4">
-        <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">精緻點心餐盒</h2>
-        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">
-          多樣化的點心組合，視覺與味覺的雙重享受，適合茶會、慶生等各種輕食場合
-        </p>
+<!-- 精緻點心餐盒：改成本地圖片（放在 </body> 之前即可） -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // 依目前卡片的顯示順序：大理石餐盒、四格餐盒、伊蓮娜餐盒、小木片餐盒、美饌餐盒、大理石六格盒
+  const newDessertImages = [
+    { title: '大理石餐盒',  src: './大理石抽屜盒.jpg' },   // 若在 cs/ 資料夾 → 改成 './cs/大理石抽屜盒.jpg'
+    { title: '四格餐盒',    src: './四格餐盒.jpg' },
+    { title: '伊蓮娜餐盒',  src: './伊蓮娜餐盒.jpg' },
+    { title: '小木片餐盒',  src: './小木片餐盒.jpg' },
+    { title: '美饌餐盒',    src: './美饌餐盒.jpg' },
+    { title: '大理石六格盒', src: './大理石六格盒.jpg' },
+  ];
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-            <div class="h-60 overflow-hidden">
-              <img
-                src="https://picsum.photos/id/291/600/400"
-                alt="大理石餐盒"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg mb-2">大理石餐盒</h3>
-            </div>
-          </div>
+  // 只影響 #dessert-boxes 這一區
+  const cards = document.querySelectorAll('#dessert-boxes .bg-light.rounded-xl');
+  const versionBuster = '?v=3'; // 換圖後想破快取可調整這個數字
 
-          <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-            <div class="h-60 overflow-hidden">
-              <img
-                src="https://picsum.photos/id/431/600/400"
-                alt="四格餐盒"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg mb-2">四格餐盒</h3>
-            </div>
-          </div>
+  newDessertImages.forEach((item, i) => {
+    const card = cards[i];
+    if (!card) return;
 
-          <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-            <div class="h-60 overflow-hidden">
-              <img
-                src="https://picsum.photos/id/225/600/400"
-                alt="伊蓮娜餐盒"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg mb-2">伊蓮娜餐盒</h3>
-            </div>
-          </div>
+    const img = card.querySelector('img');
+    const h3  = card.querySelector('h3');
 
-          <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-            <div class="h-60 overflow-hidden">
-              <img
-                src="https://picsum.photos/id/312/600/400"
-                alt="小木片餐盒"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg mb-2">小木片餐盒</h3>
-            </div>
-          </div>
-
-          <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-            <div class="h-60 overflow-hidden">
-              <img
-                src="https://picsum.photos/id/365/600/400"
-                alt="美饌餐盒"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg mb-2">美饌餐盒</h3>
-            </div>
-          </div>
-
-          <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
-            <div class="h-60 overflow-hidden">
-              <img
-                src="https://picsum.photos/id/103/600/400"
-                alt="大理石六格盒"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg mb-2">大理石六格盒</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    if (img) {
+      // 用 img.src 指定，不會被你之前的 setAttribute「鎖圖補丁」攔到
+      img.src = item.src + versionBuster;
+      img.alt = item.title;
+      img.removeAttribute('data-lock'); // 若有鎖標記，先拿掉以免後續想再換
+    }
+    if (h3) h3.textContent = item.title;
+  });
+});
+</script>
     <!-- FAQ -->
     <section id="faq" class="py-20 bg-light">
       <div class="container mx-auto px-4">

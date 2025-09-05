@@ -422,48 +422,69 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
     <!-- 精緻點心餐盒（先用 Picsum 佔位圖；之後可換成本地路徑） -->
-<!-- 精緻點心餐盒：改成本地圖片（放在 </body> 之前即可） -->
-<!-- 精緻點心餐盒：換成本地圖片（只影響 #dessert-boxes） -->
-<script>
-(() => {
-  // 依卡片順序：大理石餐盒、四格餐盒、伊蓮娜餐盒、小木片餐盒、美饌餐盒、大理石六格盒
-  // ★ 若「大理石抽屜盒.jpg」仍在 docs 外層的 cs/ 目錄（GitHub Pages 不會公開 docs 外的檔案），
-  //   第一張請改成： '../cs/大理石抽屜盒.jpg'
-  //   最穩定做法是把它搬進 docs/，然後用 './大理石抽屜盒.jpg'
-  const list = [
-    { t: '大理石餐盒',   s: './大理石抽屜盒.jpg' },      // 或 '../cs/大理石抽屜盒.jpg'
-    { t: '四格餐盒',     s: './四格餐盒.jpg' },
-    { t: '伊蓮娜餐盒',   s: './伊蓮娜餐盒.jpg' },
-    { t: '小木片餐盒',   s: './小木片餐盒.jpg' },
-    { t: '美饌餐盒',     s: './美饌餐盒.jpg' },
-    { t: '大理石六格盒', s: './大理石六格盒.jpg' }
-  ];
+ <!-- 精緻點心餐盒（先用 Picsum 佔位圖；之後可換成本地路徑） -->
+  <section id="dessert-boxes" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">精緻點心餐盒</h2>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">多樣化的點心組合，視覺與味覺的雙重享受，適合茶會、慶生等各種輕食場合</p>
 
-  // 只處理 #dessert-boxes 這一區
-  const cards = document.querySelectorAll('#dessert-boxes .bg-light.rounded-xl');
-  if (!cards.length) return;
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="https://picsum.photos/id/291/600/400" alt="大理石餐盒" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">大理石餐盒</h3>
+          </div>
+        </div>
 
-  const v = '?v=8'; // 破快取，改數字就會更新
+        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="https://picsum.photos/id/431/600/400" alt="四格餐盒" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">四格餐盒</h3>
+          </div>
+        </div>
 
-  list.forEach((it, i) => {
-    const card = cards[i];
-    if (!card) return;
+        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="https://picsum.photos/id/225/600/400" alt="伊蓮娜餐盒" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">伊蓮娜餐盒</h3>
+          </div>
+        </div>
 
-    const img = card.querySelector('img');
-    const h3  = card.querySelector('h3');
+        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="https://picsum.photos/id/312/600/400" alt="小木片餐盒" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">小木片餐盒</h3>
+          </div>
+        </div>
 
-    if (img) {
-      // 解除先前可能加過的鎖
-      img.removeAttribute('data-lock');
-      // 用屬性直接設定 src/alt
-      img.src = it.s + v;
-      img.alt = it.t;
-    }
-    if (h3) h3.textContent = it.t;
-  });
-})();
-</script>
+        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="https://picsum.photos/id/365/600/400" alt="美饌餐盒" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">美饌餐盒</h3>
+          </div>
+        </div>
 
+        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="https://picsum.photos/id/103/600/400" alt="大理石六格盒" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">大理石六格盒</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
     <!-- FAQ -->
     <section id="faq" class="py-20 bg-light">
       <div class="container mx-auto px-4">

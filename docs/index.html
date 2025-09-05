@@ -75,7 +75,8 @@
   <!-- Hero -->
   <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img src="./pexels-vanessa-loring-5971864.jpg?v=1"
+      <!-- 這張仍在 docs 根目錄 -->
+      <img src="./pexels-vanessa-loring-5971864.jpg?v=2"
            alt="木人艸精緻便當展示"
            class="w-full h-full object-cover"
            loading="eager" fetchpriority="high" decoding="async">
@@ -176,7 +177,7 @@
     </div>
   </div>
 
-  <!-- 二格盒（舊網格，預設隱藏） -->
+  <!-- 二格盒（舊網格，預設隱藏；供 SEO 用） -->
   <section id="two-grid" class="py-20 bg-light hidden">
     <div class="container mx-auto px-4">
       <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
@@ -230,7 +231,7 @@
   <section id="four-box-compact" class="py-20 bg-white">
     <div class="container mx-auto px-4">
       <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">四格盒植纖餐盒</h2>
-    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
 
       <div id="four-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer scale-hover">
         <div class="aspect-[16/9] overflow-hidden">
@@ -246,7 +247,7 @@
   </section>
 
   <!-- 四格盒燈箱 -->
-  <div id="four-pack-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+  <div id="four-pack-modal" class="fixed inset-0 z-50 flex items-center justify中心 hidden">
     <div class="absolute inset-0 bg-black/80" id="four-modal-backdrop"></div>
     <div class="relative z-10 max-w-5xl w-full mx-4">
       <button id="four-modal-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
@@ -408,7 +409,7 @@
     </div>
   </section>
 
-  <!-- 精緻點心餐盒 -->
+  <!-- 精緻點心餐盒（仍先用 Picsum 佔位圖；之後可換成本地路徑） -->
   <section id="dessert-boxes" class="py-20 bg-white">
     <div class="container mx-auto px-4">
       <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">精緻點心餐盒</h2>
@@ -720,25 +721,26 @@
   <!-- 圖片/標題資料集 + 封面與燈箱模組（統一版本） -->
   <script>
     document.addEventListener('DOMContentLoaded', function(){
-      // 1) 資料集
+      // 1) 資料集（已改為「連字號檔名」與正確資料夾）
       const dataSets = {
         two: [
-          { src: './images/two/主菜 日式鹽麴雞腿排.png', title: '日式鹽麴雞腿排' },
-          { src: './images/two/主菜 法式油封杏鮑菇(素).png', title: '法式油封杏鮑菇(素)' },
-          { src: './images/two/主菜 蔥油雞胸肉.png', title: '蔥油雞胸肉' },
-          { src: './images/two/主菜 獨家香料鹹豬肉.png', title: '獨家香料鹹豬肉' }
+          { src: './images/two/主菜-日式鹽麴雞腿排.png?v=2',       title: '日式鹽麴雞腿排' },
+          { src: './images/two/主菜-法式油封杏鮑菇(素).png?v=2',   title: '法式油封杏鮑菇(素)' },
+          { src: './images/two/主菜-蔥油雞胸肉.png?v=2',           title: '蔥油雞胸肉' },
+          { src: './images/two/主菜-獨家香料鹹豬肉.png?v=2',       title: '獨家香料鹹豬肉' }
         ],
         four: [
-          { src: './images/four/主菜 四格1.png', title: '四格盒餐盒1' },
-          { src: './images/four/主菜 四格2.png', title: '四格盒餐盒2' },
-          { src: './images/four/主菜 四格3.png', title: '四格盒餐盒3' },
-          { src: './images/four/主菜 四格4.png', title: '四格盒餐盒4' }
+          { src: './images/four/雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=2', title: '雙主菜：牛肉漢堡排 x 油封杏鮑菇' },
+          { src: './images/four/雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg?v=2', title: '雙主菜：鹽麴雞腿排 x 鹹豬肉' },
+          { src: './images/four/雙主菜-韓式炸雞x獨家香料鹹豬肉.jpg?v=2',       title: '雙主菜：韓式炸雞 x 鹹豬肉' },
+          { src: './images/four/雙主菜-鯖魚—一夜干x獨家香料鹹豬肉.jpg?v=2',     title: '雙主菜：鯖魚一夜干 x 鹹豬肉' }
         ],
         eight: [
-          { src: './images/eight/主菜 八格1.png', title: '八格盒餐盒1' },
-          { src: './images/eight/主菜 八格2.png', title: '八格盒餐盒2' },
-          { src: './images/eight/主菜 八格3.png', title: '八格盒餐盒3' },
-          { src: './images/eight/主菜 八格4.png', title: '八格盒餐盒4' }
+          // 把下面四行換成你「docs/images/eight/」裡的實際檔名（副檔名、大小寫要完全一致）
+          { src: './images/eight/八格-1.jpg?v=2', title: '八格盒餐盒1' },
+          { src: './images/eight/八格-2.jpg?v=2', title: '八格盒餐盒2' },
+          { src: './images/eight/八格-3.jpg?v=2', title: '八格盒餐盒3' },
+          { src: './images/eight/八格-4.jpg?v=2', title: '八格盒餐盒4' }
         ]
       };
 
@@ -897,7 +899,7 @@
     });
   </script>
 
-  <!-- 鎖圖補丁（避免 #dessert-boxes 的圖片被其他腳本覆蓋；並修正大理石六格盒） -->
+  <!-- 鎖圖補丁（避免 #dessert-boxes 的圖片被覆蓋；並可針對「大理石六格盒」指定圖檔） -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // 鎖住 #dessert-boxes 裡的所有圖片
@@ -905,8 +907,10 @@
         img.setAttribute('data-lock', 'true');
       });
 
-      // 指定「大理石六格盒」的圖片（可改成你的正式檔案路徑）
-      const FIXED_MARBLE_IMG = null; // 例如 './images/dessert/大理石六格盒.jpg'
+      // 若你有自己的「大理石六格盒」圖片，填上路徑；留空則沿用現在的 picsum
+      const FIXED_MARBLE_IMG = null; // 例：'./images/dessert/大理石六格盒.jpg'
+
+      // 指定「大理石六格盒」圖片 + 破快取
       const cards = document.querySelectorAll('#dessert-boxes .bg-light.rounded-xl');
       cards.forEach(card => {
         const title = card.querySelector('h3')?.textContent?.trim();
@@ -915,17 +919,17 @@
           if (img) {
             const src = FIXED_MARBLE_IMG || img.getAttribute('src') || '';
             const v = src.includes('?') ? '&v=2' : '?v=2';
-            img.src = src + v; // 破快取
+            img.src = src + v;
             img.alt = '大理石六格盒';
           }
         }
       });
 
-      // 全域保護：之後若有腳本想改「被鎖住圖片」的 src，就忽略
+      // 全域保護：被鎖住的圖片不允許修改 src
       const _setAttr = Element.prototype.setAttribute;
       Element.prototype.setAttribute = function(name, value) {
         if (name === 'src' && this.tagName === 'IMG' && this.getAttribute('data-lock') === 'true') {
-          return; // 被鎖住的點心餐盒圖片不允許改 src
+          return;
         }
         return _setAttr.apply(this, arguments);
       };

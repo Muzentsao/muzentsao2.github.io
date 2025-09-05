@@ -54,7 +54,7 @@
   <!-- 導航 -->
   <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="#" class="flex items-center space-x-2">
+      <a href="#hero" class="flex items-center space-x-2">
         <i class="fa-solid fa-leaf text-primary text-2xl"></i>
         <span class="font-serif font-bold text-xl text-primary">木人艸</span>
       </a>
@@ -75,11 +75,12 @@
   <!-- Hero -->
   <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <!-- 這張仍在 docs 根目錄即可 -->
-      <img src="./pexels-vanessa-loring-5971864.jpg?v=4"
-     alt="木人艸精緻便當展示"
-     class="w-full h-full object-cover"
-     loading="eager" fetchpriority="high" decoding="async">
+      <!-- 這張放在 docs/images/hero/ -->
+      <img
+        src="./images/hero/pexels-vanessa-loring-5971864.jpg?v=5"
+        alt="木人艸精緻便當展示"
+        class="w-full h-full object-cover"
+        loading="eager" fetchpriority="high" decoding="async">
       <div class="absolute inset-0 bg-dark/40"></div>
     </div>
     <div class="container mx-auto px-4 z-10 text-center">
@@ -93,7 +94,7 @@
         立即詢價
       </a>
     </div>
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce">
       <a href="#features" class="flex flex-col items-center">
         <span class="mb-2 text-sm">向下捲動</span>
         <i class="fa-solid fa-chevron-down"></i>
@@ -118,7 +119,7 @@
         </div>
 
         <div class="text-center p-6 rounded-xl bg-light/50 scale-hover">
-          <div class="w-16 h-16 bg-primary/10 rounded-full flex items中心 justify-center mx-auto mb-6">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
             <i class="fa-solid fa-share-nodes text-primary text-2xl"></i>
           </div>
           <h3 class="font-bold text-xl mb-3">好分發</h3>
@@ -136,44 +137,285 @@
     </div>
   </section>
 
- <!-- 二格封面 & 燈箱 -->
-<img id="cover-image" src="./images/two/主菜-日式鹽麴雞腿排.png?v=4" alt="日式鹽麴雞腿排"
-     class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy" />
+  <!-- 二格盒封面區 -->
+  <section id="two-box-compact" class="py-20 bg-light">
+    <div class="container mx-auto px-4">
+      <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">經典設計，主食與配菜完美分離，簡約大方又實用</p>
 
-<img id="modal-image" src="./images/two/主菜-日式鹽麴雞腿排.png?v=4" alt="二格盒大圖"
-     class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy" />
+      <div id="two-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer scale-hover">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img
+            id="cover-image"
+            src="./images/two/主菜-日式鹽麴雞腿排.png?v=5"
+            alt="日式鹽麴雞腿排"
+            class="w-full h-full object-cover opacity-0 transition-opacity duration-700"
+            loading="lazy">
+        </div>
+        <div class="p-6 text-center">
+          <span class="inline-flex items-center text-primary font-medium">
+            點擊查看更多 <i class="fa-solid fa-arrow-right ml-2"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- 二格（舊網格/SEO） -->
-<img src="./images/two/主菜-日式鹽麴雞腿排.png?v=4" alt="日式鹽麴雞腿排" class="w-full h-full object-cover">
-<img src="./images/two/主菜-法式油封杏鮑菇(素).png?v=4" alt="法式油封杏鮑菇(素)" class="w-full h-full object-cover">
-<img src="./images/two/主菜-獨家香料鹹豬肉.png?v=4" alt="獨家香料鹹豬肉" class="w-full h-full object-cover">
-<img src="./images/two/主菜-蔥油雞胸肉.png?v=4" alt="蔥油雞胸肉" class="w-full h-full object-cover">
+  <!-- 二格盒燈箱 -->
+  <div id="two-pack-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div class="absolute inset-0 bg-black/80" id="modal-backdrop"></div>
+    <div class="relative z-10 max-w-5xl w-full mx-4">
+      <button id="modal-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <button id="prev-image" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="aspect-[16/9] rounded-lg overflow-hidden">
+        <img id="modal-image" src="./images/two/主菜-日式鹽麴雞腿排.png?v=5" alt="二格盒大圖" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+      </div>
+      <button id="next-image" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
+        <span id="image-counter">1/4</span>
+      </div>
+    </div>
+  </div>
 
-<!-- 四格封面 & 燈箱 -->
-<img id="four-cover-image" src="./images/four/雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=4" alt="四格盒封面"
-     class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
-<img id="four-modal-image" src="./images/four/雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=4" alt="四格盒大圖"
-     class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+  <!-- 二格盒（舊網格，預設隱藏；供 SEO 用） -->
+  <section id="two-grid" class="py-20 bg-light hidden">
+    <div class="container mx-auto px-4">
+      <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">經典設計，主食與配菜完美分離，簡約大方又實用</p>
 
-<!-- 四格（舊網格/SEO） -->
-<img src="./images/four/雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg?v=4" alt="鹽麴雞腿排x鹹豬肉" class="w-full h-full object-cover">
-<img src="./images/four/雙主菜-法式油封杏鮑菇x日式牛肉漢堡排.jpg?v=4" alt="油封杏鮑菇x牛肉漢堡排" class="w-full h-full object-cover">
-<img src="./images/four/雙主菜-自製蔥油雞胸肉x獨家香料鹹豬肉.jpg?v=4" alt="蔥油雞胸肉x鹹豬肉" class="w-full h-full object-cover">
-<img src="./images/four/雙主菜-鯖魚一夜干x獨家香料鹹豬肉.jpg?v=4" alt="鯖魚一夜干x鹹豬肉" class="w-full h-full object-cover">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/two/主菜-日式鹽麴雞腿排.png?v=5" alt="日式鹽麴雞腿排" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">日式鹽麴雞腿排</h3>
+            <p class="text-gray-600 text-sm">精選主食搭配季節時蔬，營養均衡</p>
+          </div>
+        </div>
 
-<!-- 八格封面 & 燈箱 -->
-<img id="eight-cover-image" src="./images/eight/8格雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=4" alt="八格盒封面"
-     class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
-<img id="eight-modal-image" src="./images/eight/8格雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=4" alt="八格盒大圖"
-     class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+        <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/two/主菜-法式油封杏鮑菇(素).png?v=5" alt="法式油封杏鮑菇(素)" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">法式油封杏鮑菇(素)</h3>
+            <p class="text-gray-600 text-sm">多種新鮮蔬果搭配，健康無負擔</p>
+          </div>
+        </div>
 
-<!-- 八格（舊網格/SEO） -->
-<img src="./images/eight/8格雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=4" alt="八格：牛肉漢堡排x油封杏鮑菇" class="w-full h-full object-cover">
-<img src="./images/eight/8格雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg?v=4" alt="八格：鹽麴雞腿排x鹹豬肉" class="w-full h-full object-cover">
-<img src="./images/eight/8格雙主菜-韓式炸雞x獨家香料鹹豬肉.jpg?v=4" alt="八格：韓式炸雞x鹹豬肉" class="w-full h-full object-cover">
-<!-- 下面這張請換成你的實際檔名 -->
-<img src="./images/eight/8格雙主菜-自訂第4張.jpg?v=4" alt="八格：第4張示意" class="w-full h-full object-cover">
-  <!-- 精緻點心餐盒（先用 Picsum 佔位圖；之後可換成本地路徑） -->
+        <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/two/主菜-獨家香料鹹豬肉.png?v=5" alt="獨家香料鹹豬肉" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">獨家香料鹹豬肉</h3>
+            <p class="text-gray-600 text-sm">低卡高蛋白，適合注重體態的您</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/two/主菜-蔥油雞胸肉.png?v=5" alt="蔥油雞胸肉" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">蔥油雞胸肉</h3>
+            <p class="text-gray-600 text-sm">營養均衡，口味溫和，孩子們的最愛</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四格盒封面區 -->
+  <section id="four-box-compact" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">四格盒植纖餐盒</h2>
+    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
+
+      <div id="four-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer scale-hover">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img id="four-cover-image" src="./images/four/雙主菜-法式油封杏鮑菇x日式牛肉漢堡排.jpg?v=5" alt="四格盒封面" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+        </div>
+        <div class="p-6 text-center">
+          <span class="inline-flex items-center text-primary font-medium">
+            點擊查看更多 <i class="fa-solid fa-arrow-right ml-2"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四格盒燈箱 -->
+  <div id="four-pack-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div class="absolute inset-0 bg-black/80" id="four-modal-backdrop"></div>
+    <div class="relative z-10 max-w-5xl w-full mx-4">
+      <button id="four-modal-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <button id="four-prev-image" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="aspect-[16/9] rounded-lg overflow-hidden">
+        <img id="four-modal-image" src="./images/four/雙主菜-法式油封杏鮑菇x日式牛肉漢堡排.jpg?v=5" alt="四格盒大圖" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+      </div>
+      <button id="four-next-image" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
+        <span id="four-image-counter">1/4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 四格盒（舊網格，預設隱藏） -->
+  <section id="four-grid" class="py-20 bg-white hidden">
+    <div class="container mx-auto px-4">
+      <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">四格盒植纖餐盒</h2>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/four/雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg?v=5" alt="鹽麴雞腿排x鹹豬肉" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">雙主菜</h3>
+            <p class="text-gray-600 text-sm">精緻主菜搭配三種配菜，商務場合首選</p>
+          </div>
+        </div>
+
+        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/four/雙主菜-法式油封杏鮑菇x日式牛肉漢堡排.jpg?v=5" alt="油封杏鮑菇x牛肉漢堡排" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">雙主菜</h3>
+            <p class="text-gray-600 text-sm">匯集各國風味，一次品嚐多元美食</p>
+          </div>
+        </div>
+
+        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/four/雙主菜-自製蔥油雞胸肉x獨家香料鹹豬肉.jpg?v=5" alt="蔥油雞胸肉x鹹豬肉" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">雙主菜</h3>
+            <p class="text-gray-600 text-sm">低油少鹽，營養配比科學，健康無負擔</p>
+          </div>
+        </div>
+
+        <div class="bg-light rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/four/雙主菜-鯖魚—一夜干x獨家香料鹹豬肉.jpg?v=5" alt="鯖魚一夜干x鹹豬肉" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">雙主菜</h3>
+            <p class="text-gray-600 text-sm">多種精緻點心，適合茶會與小型聚會</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 八格盒封面區 -->
+  <section id="eight-box-compact" class="py-20 bg-light">
+    <div class="container mx-auto px-4">
+      <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">韓式八格盒</h2>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">豐盛層次，韓風美味一次擁有，八格分裝各種經典韓式料理</p>
+
+      <div id="eight-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer scale-hover">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img id="eight-cover-image" src="./images/eight/8格雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=5" alt="八格盒封面" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+        </div>
+        <div class="p-6 text-center">
+          <span class="inline-flex items-center text-primary font-medium">
+            點擊查看更多 <i class="fa-solid fa-arrow-right ml-2"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 八格盒燈箱 -->
+  <div id="eight-pack-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div class="absolute inset-0 bg-black/80" id="eight-modal-backdrop"></div>
+    <div class="relative z-10 max-w-5xl w-full mx-4">
+      <button id="eight-modal-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <button id="eight-prev-image" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="aspect-[16/9] rounded-lg overflow-hidden">
+        <img id="eight-modal-image" src="./images/eight/8格雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=5" alt="八格盒大圖" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+      </div>
+      <button id="eight-next-image" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
+        <span id="eight-image-counter">1/4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 八格盒（舊網格，預設隱藏） -->
+  <section id="korean-eight" class="py-20 bg-light hidden">
+    <div class="container mx-auto px-4">
+      <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">韓式八格盒</h2>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">豐盛層次，韓風美味一次擁有，八格分裝各種經典韓式料理</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/eight/8格雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=5" alt="八格：牛肉漢堡排x油封杏鮑菇" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">八格盒餐盒1</h3>
+            <p class="text-gray-600 text-sm">包含韓式烤肉、石鍋拌飯與多種韓式小菜</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/eight/8格雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg?v=5" alt="八格：鹽麴雞腿排x鹹豬肉" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">八格盒餐盒2</h3>
+            <p class="text-gray-600 text-sm">還原經典部隊鍋食材，豐富多樣</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/eight/8格雙主菜-韓式炸雞x獨家香料鹹豬肉.jpg?v=5" alt="八格：韓式炸雞x鹹豬肉" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">八格盒餐盒3</h3>
+            <p class="text-gray-600 text-sm">新鮮海鮮搭配韓式調味，風味獨特</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-shadow scale-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="./images/eight/8格雙主菜-鯖魚—一夜干x獨家香料鹹豬肉.jpg?v=5" alt="八格：鯖魚一夜干x鹹豬肉" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">八格盒餐盒4</h3>
+            <p class="text-gray-600 text-sm">多種韓式素食料理，健康又美味</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精緻點心餐盒（先用 Picsum 佔位圖） -->
   <section id="dessert-boxes" class="py-20 bg-white">
     <div class="container mx-auto px-4">
       <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">精緻點心餐盒</h2>
@@ -241,7 +483,7 @@
   <section id="faq" class="py-20 bg-light">
     <div class="container mx-auto px-4">
       <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">常見問題</h2>
-    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">以下是客戶經常詢問的問題，若有其他疑問歡迎隨時聯繫我們</p>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">以下是客戶經常詢問的問題，若有其他疑問歡迎隨時聯繫我們</p>
 
       <div class="max-w-3xl mx-auto space-y-6">
         <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
@@ -275,7 +517,7 @@
           </div>
         </details>
 
-        <details class="bg白 rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+        <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
           <summary class="font-bold text-lg p-6 cursor-pointer list-none flex justify-between items-center">
             <span>Q4｜可以指定菜單或更換配菜？</span>
             <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
@@ -354,7 +596,7 @@
           </div>
           <p class="text-gray-400 mb-4">提供高品質便當與點心餐盒，為各種活動帶來美味體驗。</p>
           <div class="flex space-x-4">
-            <a href="https://www.facebook.com/profile.php?id=61554825134056" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text白 transition-colors" title="木人艸臉書粉絲頁">
+            <a href="https://www.facebook.com/profile.php?id=61554825134056" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" title="木人艸臉書粉絲頁">
               <i class="fa-brands fa-facebook-f"></i>
             </a>
             <a href="https://www.instagram.com/murencao_food/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" title="木人艸 Instagram">
@@ -482,28 +724,28 @@
     });
   </script>
 
-  <!-- 圖片/標題資料集 + 封面與燈箱模組（統一版本） -->
+  <!-- 圖片/標題資料集 + 封面與燈箱模組 -->
   <script>
     document.addEventListener('DOMContentLoaded', function(){
-      // 1) 資料集（注意檔名需與 docs/images 下實際一致）
+      // 1) 資料集（完全比對你的檔名與資料夾）
       const dataSets = {
         two: [
-          { src: './images/two/主菜-日式鹽麴雞腿排.png?v=2',       title: '日式鹽麴雞腿排' },
-          { src: './images/two/主菜-法式油封杏鮑菇(素).png?v=2',   title: '法式油封杏鮑菇(素)' },
-          { src: './images/two/主菜-蔥油雞胸肉.png?v=2',           title: '蔥油雞胸肉' },
-          { src: './images/two/主菜-獨家香料鹹豬肉.png?v=2',       title: '獨家香料鹹豬肉' }
+          { src: './images/two/主菜-日式鹽麴雞腿排.png?v=5',       title: '日式鹽麴雞腿排' },
+          { src: './images/two/主菜-法式油封杏鮑菇(素).png?v=5',   title: '法式油封杏鮑菇(素)' },
+          { src: './images/two/主菜-蔥油雞胸肉.png?v=5',           title: '蔥油雞胸肉' },
+          { src: './images/two/主菜-獨家香料鹹豬肉.png?v=5',       title: '獨家香料鹹豬肉' }
         ],
         four: [
-          { src: './images/four/雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=2', title: '雙主菜：牛肉漢堡排 x 油封杏鮑菇' },
-          { src: './images/four/雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg?v=2', title: '雙主菜：鹽麴雞腿排 x 鹹豬肉' },
-          { src: './images/four/雙主菜-韓式炸雞x獨家香料鹹豬肉.jpg?v=2',       title: '雙主菜：韓式炸雞 x 鹹豬肉' },
-          { src: './images/four/雙主菜-鯖魚一夜干x獨家香料鹹豬肉.jpg?v=2',     title: '雙主菜：鯖魚一夜干 x 鹹豬肉' }
+          { src: './images/four/雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg?v=5',   title: '鹽麴雞腿排 x 鹹豬肉' },
+          { src: './images/four/雙主菜-法式油封杏鮑菇x日式牛肉漢堡排.jpg?v=5',   title: '油封杏鮑菇 x 牛肉漢堡排' },
+          { src: './images/four/雙主菜-自製蔥油雞胸肉x獨家香料鹹豬肉.jpg?v=5',   title: '蔥油雞胸肉 x 鹹豬肉' },
+          { src: './images/four/雙主菜-鯖魚—一夜干x獨家香料鹹豬肉.jpg?v=5',     title: '鯖魚一夜干 x 鹹豬肉' }
         ],
         eight: [
-          { src: './images/eight/8格雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=2', title: '八格盒餐盒1' },
-          { src: './images/eight/8格雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg?v=2',   title: '八格盒餐盒2' },
-          { src: './images/eight/8格雙主菜-韓式炸雞x獨家香料鹹豬肉.jpg?v=2',         title: '八格盒餐盒3' },
-          { src: './images/eight/8格雙主菜-自訂第4張.jpg?v=2',                         title: '八格盒餐盒4' } // ← 替換成你的第4張
+          { src: './images/eight/8格雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg?v=5', title: '八格1' },
+          { src: './images/eight/8格雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg?v=5',   title: '八格2' },
+          { src: './images/eight/8格雙主菜-韓式炸雞x獨家香料鹹豬肉.jpg?v=5',         title: '八格3' },
+          { src: './images/eight/8格雙主菜-鯖魚—一夜干x獨家香料鹹豬肉.jpg?v=5',       title: '八格4' }
         ]
       };
 
@@ -540,83 +782,78 @@
           moduleName, images
         } = opts;
 
-        try{
-          const coverImage   = document.getElementById(coverImageId);
-          const coverWrap    = document.getElementById(coverContainerId);
-          const modal        = document.getElementById(modalId);
-          const modalImage   = document.getElementById(modalImageId);
-          const modalClose   = document.getElementById(modalCloseId);
-          const modalBackdrop= document.getElementById(modalBackdropId);
-          const prevBtn      = document.getElementById(prevBtnId);
-          const nextBtn      = document.getElementById(nextBtnId);
-          const counter      = document.getElementById(counterId);
+        const coverImage   = document.getElementById(coverImageId);
+        const coverWrap    = document.getElementById(coverContainerId);
+        const modal        = document.getElementById(modalId);
+        const modalImage   = document.getElementById(modalImageId);
+        const modalClose   = document.getElementById(modalCloseId);
+        const modalBackdrop= document.getElementById(modalBackdropId);
+        const prevBtn      = document.getElementById(prevBtnId);
+        const nextBtn      = document.getElementById(nextBtnId);
+        const counter      = document.getElementById(counterId);
 
-          if (!coverImage || !coverWrap || !modal || !modalImage || !images?.length) return;
+        if (!coverImage || !coverWrap || !modal || !modalImage || !images?.length) return;
 
-          // 設封面
-          coverImage.src = images[0].src;
-          coverImage.alt = images[0].title || moduleName + '封面';
-          coverImage.loading = 'lazy';
-          if (coverImage.complete) coverImage.classList.add('opacity-100');
-          coverImage.onload = ()=> coverImage.classList.add('opacity-100');
+        // 封面設定
+        coverImage.src = images[0].src;
+        coverImage.alt = images[0].title || moduleName + '封面';
+        coverImage.loading = 'lazy';
+        if (coverImage.complete) coverImage.classList.add('opacity-100');
+        coverImage.onload = ()=> coverImage.classList.add('opacity-100');
 
-          let currentIndex = 0;
-          const total = images.length;
+        let currentIndex = 0;
+        const total = images.length;
 
-          const updateModal = (i)=>{
-            currentIndex = Math.max(0, Math.min(i, total-1));
-            const it = images[currentIndex];
-            modalImage.src = it.src;
-            modalImage.alt = it.title || `${moduleName} ${currentIndex+1}`;
-            modalImage.loading = 'lazy';
-            if (counter) counter.textContent = `${currentIndex+1}/${total}`;
-            if (modalImage.complete) modalImage.classList.add('opacity-100');
-            modalImage.onload = ()=> modalImage.classList.add('opacity-100');
-          };
+        const updateModal = (i)=>{
+          currentIndex = Math.max(0, Math.min(i, total-1));
+          const it = images[currentIndex];
+          modalImage.src = it.src;
+          modalImage.alt = it.title || `${moduleName} ${currentIndex+1}`;
+          modalImage.loading = 'lazy';
+          if (counter) counter.textContent = `${currentIndex+1}/${total}`;
+          if (modalImage.complete) modalImage.classList.add('opacity-100');
+          modalImage.onload = ()=> modalImage.classList.add('opacity-100');
+        };
 
-          const openModal = ()=>{
-            modalImage.classList.remove('opacity-100');
-            updateModal(0);
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-          };
-          const closeModal = ()=>{
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-          };
+        const openModal = ()=>{
+          modalImage.classList.remove('opacity-100');
+          updateModal(0);
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        };
+        const closeModal = ()=>{
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+        };
 
-          coverWrap.addEventListener('click', (e)=>{
-            if (e.target.tagName !== 'SPAN' && e.target.tagName !== 'I') openModal();
-          });
-          if (modalClose)   modalClose.addEventListener('click', closeModal);
-          if (modalBackdrop)modalBackdrop.addEventListener('click', closeModal);
+        coverWrap.addEventListener('click', (e)=>{
+          if (e.target.tagName !== 'SPAN' && e.target.tagName !== 'I') openModal();
+        });
+        if (modalClose)   modalClose.addEventListener('click', closeModal);
+        if (modalBackdrop)modalBackdrop.addEventListener('click', closeModal);
 
-          if (prevBtn) prevBtn.addEventListener('click', ()=>{
+        if (prevBtn) prevBtn.addEventListener('click', ()=>{
+          modalImage.classList.remove('opacity-100');
+          updateModal(currentIndex - 1);
+        });
+        if (nextBtn) nextBtn.addEventListener('click', ()=>{
+          modalImage.classList.remove('opacity-100');
+          updateModal(currentIndex + 1);
+        });
+
+        // 鍵盤操作
+        document.addEventListener('keydown', (e)=>{
+          if (modal.classList.contains('hidden')) return;
+          if (e.key === 'Escape') closeModal();
+          if (e.key === 'ArrowLeft' && prevBtn){
             modalImage.classList.remove('opacity-100');
             updateModal(currentIndex - 1);
-          });
-          if (nextBtn) nextBtn.addEventListener('click', ()=>{
+          }
+          if (e.key === 'ArrowRight' && nextBtn){
             modalImage.classList.remove('opacity-100');
             updateModal(currentIndex + 1);
-          });
-
-          // 鍵盤操作
-          document.addEventListener('keydown', (e)=>{
-            if (modal.classList.contains('hidden')) return;
-            if (e.key === 'Escape') closeModal();
-            if (e.key === 'ArrowLeft' && prevBtn){
-              modalImage.classList.remove('opacity-100');
-              updateModal(currentIndex - 1);
-            }
-            if (e.key === 'ArrowRight' && nextBtn){
-              modalImage.classList.remove('opacity-100');
-              updateModal(currentIndex + 1);
-            }
-          });
-
-        }catch(err){
-          console.error(`初始化 ${moduleName} 失敗:`, err);
-        }
+          }
+        });
       };
 
       // 4) 初始化模組
@@ -661,43 +898,6 @@
         moduleName:'韓式八格盒',
         images: dataSets.eight
       });
-    });
-  </script>
-
-  <!-- 鎖圖補丁（避免 #dessert-boxes 的圖片被覆蓋；並可針對「大理石六格盒」指定圖檔） -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // 鎖住 #dessert-boxes 裡的所有圖片
-      document.querySelectorAll('#dessert-boxes img').forEach(img => {
-        img.setAttribute('data-lock', 'true');
-      });
-
-      // 若你有自己的「大理石六格盒」圖片，填上路徑；留空則沿用現在的 picsum
-      const FIXED_MARBLE_IMG = null; // 例：'./images/dessert/大理石六格盒.jpg'
-
-      // 指定「大理石六格盒」圖片 + 破快取
-      const cards = document.querySelectorAll('#dessert-boxes .bg-light.rounded-xl');
-      cards.forEach(card => {
-        const title = card.querySelector('h3')?.textContent?.trim();
-        if (title === '大理石六格盒') {
-          const img = card.querySelector('img');
-          if (img) {
-            const src = FIXED_MARBLE_IMG || img.getAttribute('src') || '';
-            const v = src.includes('?') ? '&v=2' : '?v=2';
-            img.src = src + v;
-            img.alt = '大理石六格盒';
-          }
-        }
-      });
-
-      // 全域保護：被鎖住的圖片不允許修改 src
-      const _setAttr = Element.prototype.setAttribute;
-      Element.prototype.setAttribute = function(name, value) {
-        if (name === 'src' && this.tagName === 'IMG' && this.getAttribute('data-lock') === 'true') {
-          return;
-        }
-        return _setAttr.apply(this, arguments);
-      };
     });
   </script>
 

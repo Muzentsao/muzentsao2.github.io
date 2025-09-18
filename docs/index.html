@@ -249,8 +249,15 @@
     <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">豐盛層次，韓風美味一次擁有，八格分裝各種經典韓式料理</p>
 
     <div id="eight-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
-      <div class="aspect-[16/9] overflow-hidden bg-black/5">
-        <img id="eight-cover" src="" alt="八格盒封面" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
+      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
+        <!-- 背景（同張圖） -->
+        <img id="eight-cover-bg"
+             class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50"
+             aria-hidden="true">
+        <!-- 前景（主圖） -->
+        <img id="eight-cover"
+             class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700"
+             alt="八格盒封面" loading="lazy">
       </div>
       <div class="p-6 text-center">
         <span class="inline-flex items-center text-primary font-medium">

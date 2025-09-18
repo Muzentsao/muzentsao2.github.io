@@ -132,7 +132,7 @@
           </div>
 
           <div class="text-center p-6 rounded-xl bg-light/50 scale-hover">
-            <div class="w-16 h-16 bg-primary/10 rounded-full flex items中心 justify-center mx-auto mb-6">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <i class="fa-solid fa-share-nodes text-primary text-2xl"></i>
             </div>
             <h3 class="font-bold text-xl mb-3">好分發</h3>
@@ -157,8 +157,8 @@
     <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">經典設計，主食與配菜完美分離，簡約大方又實用</p>
 
     <div id="two-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
-      <div class="aspect-[16/9] overflow-hidden">
-        <img id="two-cover" src="" alt="二格盒封面" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+      <div class="aspect-[16/9] overflow-hidden bg-black/5">
+        <img id="two-cover" src="" alt="二格盒封面" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
       </div>
       <div class="p-6 text-center">
         <span class="inline-flex items-center text-primary font-medium">
@@ -180,7 +180,7 @@
       <i class="fa-solid fa-chevron-left"></i>
     </button>
     <div class="aspect-[16/9] rounded-lg overflow-hidden">
-      <img id="two-modal-img" src="" alt="二格盒大圖" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+      <img id="two-modal-img" src="" alt="二格盒大圖" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
     </div>
     <button id="two-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
       <i class="fa-solid fa-chevron-right"></i>
@@ -198,8 +198,8 @@
     <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
 
     <div id="four-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
-      <div class="aspect-[16/9] overflow-hidden">
-        <img id="four-cover" src="" alt="四格盒封面" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+      <div class="aspect-[16/9] overflow-hidden bg-black/5">
+        <img id="four-cover" src="" alt="四格盒封面" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
       </div>
       <div class="p-6 text-center">
         <span class="inline-flex items-center text-primary font-medium">
@@ -221,7 +221,7 @@
       <i class="fa-solid fa-chevron-left"></i>
     </button>
     <div class="aspect-[16/9] rounded-lg overflow-hidden">
-      <img id="four-modal-img" src="" alt="四格盒大圖" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+      <img id="four-modal-img" src="" alt="四格盒大圖" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
     </div>
     <button id="four-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
       <i class="fa-solid fa-chevron-right"></i>
@@ -239,8 +239,8 @@
     <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">豐盛層次，韓風美味一次擁有，八格分裝各種經典韓式料理</p>
 
     <div id="eight-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
-      <div class="aspect-[16/9] overflow-hidden">
-        <img id="eight-cover" src="" alt="八格盒封面" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+      <div class="aspect-[16/9] overflow-hidden bg-black/5">
+        <img id="eight-cover" src="" alt="八格盒封面" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
       </div>
       <div class="p-6 text-center">
         <span class="inline-flex items-center text-primary font-medium">
@@ -262,7 +262,7 @@
       <i class="fa-solid fa-chevron-left"></i>
     </button>
     <div class="aspect-[16/9] rounded-lg overflow-hidden">
-      <img id="eight-modal-img" src="" alt="八格盒大圖" class="w-full h-full object-cover opacity-0 transition-opacity duration-700" loading="lazy">
+      <img id="eight-modal-img" src="" alt="八格盒大圖" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
     </div>
     <button id="eight-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
       <i class="fa-solid fa-chevron-right"></i>
@@ -452,6 +452,81 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+    <!-- ===== 精緻點心餐盒 ===== -->
+<section id="dessert-boxes" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">
+      精緻點心餐盒
+    </h2>
+    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+      會議茶點、派對餐盒與各式小點，精緻好分發、上桌體面
+    </p>
+
+    <!-- 這裡的卡片 class 與標題文字要對應到你的 JS 才會自動換圖 -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 1 -->
+      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="" alt="大理石餐盒" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-lg">大理石餐盒</h3>
+          <p class="text-gray-600 text-sm mt-1">抽屜式設計，容量彈性好擺放</p>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="" alt="四格餐盒" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-lg">四格餐盒</h3>
+          <p class="text-gray-600 text-sm mt-1">分格清晰，甜鹹點一次到位</p>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="" alt="伊蓮娜餐盒" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-lg">伊蓮娜餐盒</h3>
+          <p class="text-gray-600 text-sm mt-1">歐風質感，適合商務茶點</p>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="" alt="小木片餐盒" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-lg">小木片餐盒</h3>
+          <p class="text-gray-600 text-sm mt-1">自然木質感，氣氛滿分</p>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="" alt="美饌餐盒" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-lg">美饌餐盒</h3>
+          <p class="text-gray-600 text-sm mt-1">款式彈性高，搭配自由</p>
+        </div>
+      </div>
+      <!-- 6（這個名稱請保留，JS 會特別處理） -->
+      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img src="" alt="大理石六格盒" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-lg">大理石六格盒</h3>
+          <p class="text-gray-600 text-sm mt-1">六格分裝，視覺豐富不混味</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- FAQ -->
     <section id="faq" class="py-20 bg-light">
       <div class="container mx-auto px-4">
@@ -492,7 +567,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
           </details>
 
-          <details class="bg白 rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+          <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
             <summary class="font-bold text-lg p-6 cursor-pointer list-none flex justify-between items-center">
               <span>Q4｜可以指定菜單或更換配菜？</span>
               <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
@@ -608,7 +683,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 href="https://www.facebook.com/profile.php?id=61554825134056"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-gray-400 hover:text白 transition-colors"
+                class="text-gray-400 hover:text-white transition-colors"
                 title="木人艸臉書粉絲頁"
               >
                 <i class="fa-brands fa-facebook-f"></i>

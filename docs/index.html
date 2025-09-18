@@ -287,12 +287,15 @@
 
   // 共用輪播初始化
   const initCarousel = ({
-    moduleName, images,
-    coverImgId, coverWrapId,
-    modalId, modalImgId,
-    prevBtnId, nextBtnId,
-    closeBtnId, backdropId,
-    counterId
+    moduleName,            // 只是用在 alt 的補字
+    images,                // 上面 dataSets 裡某組
+    coverImgId,            // 封面 <img> 的 id
+    coverWrapId,           // 封面整塊容器 id（用來綁點擊開啟）
+    modalId,               // 燈箱容器 id
+    modalImgId,            // 燈箱內 <img> id
+    prevBtnId, nextBtnId,  // 上/下一張按鈕 id
+    closeBtnId, backdropId,// 關閉/背景 id
+    counterId              // 計數用 span id
   }) => {
     const coverImg  = document.getElementById(coverImgId);
     const coverWrap = document.getElementById(coverWrapId);
@@ -309,22 +312,30 @@
     let idx = 0;
     const total = images.length;
 
-    const setImg = (imgEl, item) => {
-      imgEl.classList.remove('opacity-100');
-      imgEl.src = item.src;
-      imgEl.alt = item.title || `${moduleName} 第 ${idx+1} 張`;
-      if (imgEl.complete) imgEl.classList.add('opacity-100');
-      imgEl.onload = () => imgEl.classList.add('opacity-100');
-    };
+    // 封面圖（前景）
+    coverImg.src = images[0].src;
+    coverImg.alt = images[0].title || `${moduleName}封面`;
 
-    // 封面
-    setImg(coverImg, images[0]);
+    // 若有做「偽無留邊」的背景圖（id 以 -bg 結尾），同步設定
+    const coverBg = document.getElementById(coverImgId + '-bg');
+    if (coverBg) {
+      coverBg.src = images[0].src;
+      coverBg.alt = (images[0].title || `${moduleName}封面`) + ' 背景';
+    }
 
-    // 燈箱更新
-    const update = (newIdx) => {
-      idx = (newIdx + total) % total;
-      setImg(modalImg, images[idx]);
-      if (counter) counter.textContent = `${idx+1}/${total}`;
+    if (coverImg.complete) coverImg.classList.add('opacity-100');
+    coverImg.onload = () => coverImg.classList.add('opacity-100');
+
+    // 更新燈箱
+    const update = (i) => {
+      idx = (i + total) % total;
+      const it = images[idx];
+      modalImg.classList.remove('opacity-100');
+      modalImg.src = it.src;
+      modalImg.alt = it.title || `${moduleName} 第 ${idx + 1} 張`;
+      if (counter) counter.textContent = `${idx + 1}/${total}`;
+      if (modalImg.complete) modalImg.classList.add('opacity-100');
+      modalImg.onload = () => modalImg.classList.add('opacity-100');
     };
 
     const open = () => {
@@ -333,6 +344,7 @@
       modal.classList.add('flex');
       document.body.style.overflow = 'hidden';
     };
+
     const close = () => {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
@@ -340,21 +352,22 @@
     };
 
     coverWrap.addEventListener('click', open);
-    prevBtn?.addEventListener('click', () => update(idx - 1));
-    nextBtn?.addEventListener('click', () => update(idx + 1));
-    closeBtn?.addEventListener('click', close);
-    backdrop?.addEventListener('click', close);
+    if (closeBtn)   closeBtn.addEventListener('click', close);
+    if (backdrop)   backdrop.addEventListener('click', close);
+    if (prevBtn)    prevBtn.addEventListener('click', () => update(idx - 1));
+    if (nextBtn)    nextBtn.addEventListener('click', () => update(idx + 1));
 
+    // 鍵盤操作
     document.addEventListener('keydown', (e) => {
       if (modal.classList.contains('hidden')) return;
-      if (e.key === 'Escape') close();
+      if (e.key === 'Escape')     close();
       if (e.key === 'ArrowLeft')  update(idx - 1);
       if (e.key === 'ArrowRight') update(idx + 1);
     });
   };
 
+  // ===== 你的資料集與初始化 =====
   document.addEventListener('DOMContentLoaded', () => {
-    // 你的實際檔名（相對 docs 根目錄）
     const dataSets = {
       two: [
         { src: './主菜-日式鹽麴雞腿排.png',              title: '日式鹽麴雞腿排' },
@@ -378,29 +391,44 @@
 
     // 初始化三組
     initCarousel({
-      moduleName:'二格盒', images:dataSets.two,
-      coverImgId:'two-cover', coverWrapId:'two-box-cover',
-      modalId:'two-modal', modalImgId:'two-modal-img',
-      prevBtnId:'two-prev', nextBtnId:'two-next',
-      closeBtnId:'two-close', backdropId:'two-backdrop',
+      moduleName:'二格盒',
+      images: dataSets.two,
+      coverImgId:'two-cover',
+      coverWrapId:'two-box-cover',
+      modalId:'two-modal',
+      modalImgId:'two-modal-img',
+      prevBtnId:'two-prev',
+      nextBtnId:'two-next',
+      closeBtnId:'two-close',
+      backdropId:'two-backdrop',
       counterId:'two-counter'
     });
 
     initCarousel({
-      moduleName:'四格盒', images:dataSets.four,
-      coverImgId:'four-cover', coverWrapId:'four-box-cover',
-      modalId:'four-modal', modalImgId:'four-modal-img',
-      prevBtnId:'four-prev', nextBtnId:'four-next',
-      closeBtnId:'four-close', backdropId:'four-backdrop',
+      moduleName:'四格盒',
+      images: dataSets.four,
+      coverImgId:'four-cover',
+      coverWrapId:'four-box-cover',
+      modalId:'four-modal',
+      modalImgId:'four-modal-img',
+      prevBtnId:'four-prev',
+      nextBtnId:'four-next',
+      closeBtnId:'four-close',
+      backdropId:'four-backdrop',
       counterId:'four-counter'
     });
 
     initCarousel({
-      moduleName:'八格盒', images:dataSets.eight,
-      coverImgId:'eight-cover', coverWrapId:'eight-box-cover',
-      modalId:'eight-modal', modalImgId:'eight-modal-img',
-      prevBtnId:'eight-prev', nextBtnId:'eight-next',
-      closeBtnId:'eight-close', backdropId:'eight-backdrop',
+      moduleName:'八格盒',
+      images: dataSets.eight,
+      coverImgId:'eight-cover',
+      coverWrapId:'eight-box-cover',
+      modalId:'eight-modal',
+      modalImgId:'eight-modal-img',
+      prevBtnId:'eight-prev',
+      nextBtnId:'eight-next',
+      closeBtnId:'eight-close',
+      backdropId:'eight-backdrop',
       counterId:'eight-counter'
     });
   });

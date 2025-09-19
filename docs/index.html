@@ -55,7 +55,7 @@
 
   <body class="bg-light text-dark font-sans">
     <!-- 導航 -->
-   <header id="site-header" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
       <div class="container mx-auto px-4 py-3 flex justify-between items-center">
         <a href="#" class="flex items-center space-x-2">
           <i class="fa-solid fa-leaf text-primary text-2xl"></i>
@@ -77,49 +77,43 @@
       </div>
     </header>
 
-   <!-- Hero -->
-<section id="hero" class="relative overflow-hidden">
-  <!-- 背景層不變 -->
-  <div class="absolute inset-0 z-0">
-    <img
-      src="./pexels-vanessa-loring-5971864.jpg?v=5"
-      alt="木人艸精緻便當展示"
-      class="w-full h-full object-cover"
-      loading="eager"
-      fetchpriority="high"
-      decoding="async"
-    />
-    <div class="absolute inset-0 bg-dark/40"></div>
-  </div>
+    <!-- Hero -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img
+          src="./pexels-vanessa-loring-5971864.jpg?v=5"
+          alt="木人艸精緻便當展示"
+          class="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-dark/40"></div>
+      </div>
 
-  <!-- 內容層：整組一起置中 -->
-  <div class="relative z-10 container mx-auto px-4">
-    <div class="min-h-[calc(100vh-var(--hdr,64px))] pt-[var(--hdr,64px)]
-            flex flex-col items-center justify-center text-center gap-6">
-      <h1 class="font-serif font-bold text-[clamp(2.5rem,6vw,4.5rem)] text-white text-shadow leading-tight">
-        木人艸<br />精緻便當與點心餐盒
-      </h1>
+      <div class="container mx-auto px-4 z-10 text-center">
+        <h1 class="font-serif font-bold text-[clamp(2.5rem,6vw,4.5rem)] text-white text-shadow mb-6 leading-tight">
+          木人艸<br />精緻便當與點心餐盒
+        </h1>
+        <p class="text-white text-[clamp(1rem,2vw,1.25rem)] max-w-2xl mx-auto mb-10 text-shadow">
+          準時好吃、好分發、好控預算的正餐便當與點心餐盒，為您的活動帶來美味體驗
+        </p>
+        <a
+          href="#contact"
+          class="inline-block bg-primary hover:bg-accent text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          立即詢價
+        </a>
+      </div>
 
-      <p class="text-white text-[clamp(1rem,2vw,1.25rem)] max-w-2xl">
-        準時好吃、好分發、好控預算的正餐便當與點心餐盒，為您的活動帶來美味體驗
-      </p>
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+        <a href="#features" class="flex flex-col items-center">
+          <span class="mb-2 text-sm">向下捲動</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+      </div>
+    </section>
 
-      <a
-        href="#contact"
-        class="inline-block bg-primary hover:bg-accent text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-      >
-        立即詢價
-      </a>
-
-      <!-- 向下捲動：跟上面同一個容器一起置中 -->
-      <a href="#features" class="mt-4 flex flex-col items-center text-white animate-bounce">
-        <span class="mb-2 text-sm">向下捲動</span>
-        <i class="fa-solid fa-chevron-down"></i>
-      </a>
-    </div>
-  </div>
-</section>
-    
     <!-- 核心優勢 -->
     <section id="features" class="py-20 bg-white">
       <div class="container mx-auto px-4">
@@ -155,912 +149,104 @@
       </div>
     </section>
 
-   <!-- ===== 二格盒封面區 ===== -->
-<section id="two-box-compact" class="py-20 bg-light">
-  <div class="container mx-auto px-4">
-    <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
-    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">經典設計，主食與配菜完美分離，簡約大方又實用</p>
-
-    <div id="two-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
-  <!-- 這一塊是新的：4:3 + 背景模糊 + 前景等比不裁切 -->
-  <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
-    <!-- 背景：同張圖鋪滿、模糊、微放大 -->
-    <img id="two-cover-bg"
-         class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50"
-         aria-hidden="true">
-    <!-- 前景：不裁切、不變形 -->
-    <img id="two-cover"
-         class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700"
-         alt="二格盒封面" loading="lazy">
-  </div>
-
-  <div class="p-6 text-center">
-    <span class="inline-flex items-center text-primary font-medium">
-      點擊查看更多 <i class="fa-solid fa-arrow-right ml-2"></i>
-    </span>
-  </div>
-</div>
-  </div>
-</section>
-
-<!-- 二格盒燈箱 -->
-<div id="two-caption"
-     class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-20
-            text-white bg-black/60 px-4 py-2 rounded-full text-sm"
-     aria-live="polite"></div>
-    
-  <div class="relative z-10 max-w-5xl w-full mx-4">
-    <button id="two-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <button id="two-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-    <div class="aspect-[16/9] rounded-lg overflow-hidden">
-      <img id="two-modal-img" src="" alt="二格盒大圖" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
-    </div>
-    <button id="two-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
-      <span id="two-counter">1/4</span>
-    </div>
-  </div>
-</div>
-
-<!-- ===== 四格盒封面區 ===== -->
-<section id="four-box-compact" class="py-20 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">四格盒植纖餐盒</h2>
-    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
-    
-    <div id="four-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
-      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
-  <!-- 背景：同張圖鋪滿、模糊、微放大 -->
-  <img id="four-cover-bg"
-       class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50"
-       aria-hidden="true">
-  <!-- 前景：不裁切、不變形 -->
-  <img id="four-cover"
-       class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700"
-       alt="四格盒封面" loading="lazy">
-   </div>
-        
-      <div class="p-6 text-center">
-  <span class="inline-flex items-center text-primary font-medium">
-    點擊查看更多 <i class="fa-solid fa-arrow-right ml-2"></i>
-  </span>
-</div>
-</div>
-  </div>
-</section>
-
-<!-- 四格盒燈箱 -->
-<div id="four-caption"
-     class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-20
-            text-white bg-black/60 px-4 py-2 rounded-full text-sm"
-     aria-live="polite"></div>
-  <div class="relative z-10 max-w-5xl w-full mx-4">
-    <button id="four-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <button id="four-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-    <div class="aspect-[16/9] rounded-lg overflow-hidden">
-      <img id="four-modal-img" src="" alt="四格盒大圖" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
-    </div>
-    <button id="four-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
-      <span id="four-counter">1/4</span>
-    </div>
-  </div>
-</div>
-
-<!-- ===== 八格盒封面區 ===== -->
-<section id="eight-box-compact" class="py-20 bg-light">
-  <div class="container mx-auto px-4">
-    <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">韓式八格盒</h2>
-    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">豐盛層次，韓風美味一次擁有，八格分裝各種經典韓式料理</p>
-
-    <div id="eight-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
-      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
-        <!-- 背景（同張圖） -->
-        <img id="eight-cover-bg"
-             class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50"
-             aria-hidden="true">
-        <!-- 前景（主圖） -->
-        <img id="eight-cover"
-             class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700"
-             alt="八格盒封面" loading="lazy">
-      </div>
-      <div class="p-6 text-center">
-        <span class="inline-flex items-center text-primary font-medium">
-          點擊查看更多 <i class="fa-solid fa-arrow-right ml-2"></i>
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 八格盒燈箱（修正版） -->
-<div id="eight-caption"
-     class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-20
-            text-white bg-black/60 px-4 py-2 rounded-full text-sm"
-     aria-live="polite"></div>
-
-  <div class="relative z-10 max-w-5xl w-full mx-4">
-    <button id="eight-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-
-    <button id="eight-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-
-    <div class="aspect-[16/9] rounded-lg overflow-hidden">
-      <img id="eight-modal-img" src="" alt="八格盒大圖"
-           class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
-    </div>
-
-    <button id="eight-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
-      <span id="eight-counter">1/4</span>
-    </div>
-  </div>
-</div>
-
-<!-- 輪播：唯一版本（放在 </body> 前） -->
-<script>
-  window.__useNewCarousel = true; // 用新輪播
-
-  // 共用輪播初始化（新增 captionId）
-  const initCarousel = ({
-    moduleName,
-    images,
-    coverImgId,
-    coverWrapId,
-    modalId,
-    modalImgId,
-    prevBtnId, nextBtnId,
-    closeBtnId, backdropId,
-    counterId,
-    captionId          // ← 新增：名稱容器的 id
-  }) => {
-    const coverImg  = document.getElementById(coverImgId);
-    const coverWrap = document.getElementById(coverWrapId);
-    const modal     = document.getElementById(modalId);
-    const modalImg  = document.getElementById(modalImgId);
-    const prevBtn   = document.getElementById(prevBtnId);
-    const nextBtn   = document.getElementById(nextBtnId);
-    const closeBtn  = document.getElementById(closeBtnId);
-    const backdrop  = document.getElementById(backdropId);
-    const counter   = document.getElementById(counterId);
-    const caption   = captionId ? document.getElementById(captionId) : null; // ← 新增
-
-    if (!coverImg || !coverWrap || !modal || !modalImg || !images?.length) return;
-
-    let idx = 0;
-    const total = images.length;
-
-    // 封面圖（前景）
-    coverImg.src = images[0].src;
-    coverImg.alt = images[0].title || `${moduleName}封面`;
-
-    // 若有做「偽無留邊」的背景圖（id 以 -bg 結尾），同步設定
-    const coverBg = document.getElementById(coverImgId + '-bg');
-    if (coverBg) {
-      coverBg.src = images[0].src;
-      coverBg.alt = (images[0].title || `${moduleName}封面`) + ' 背景';
-    }
-
-    if (coverImg.complete) coverImg.classList.add('opacity-100');
-    coverImg.onload = () => coverImg.classList.add('opacity-100');
-
-    // 更新燈箱（同步更新名稱）
-    const update = (i) => {
-      idx = (i + total) % total;
-      const it = images[idx];
-      modalImg.classList.remove('opacity-100');
-      modalImg.src = it.src;
-      modalImg.alt = it.title || `${moduleName} 第 ${idx + 1} 張`;
-      if (counter) counter.textContent = `${idx + 1}/${total}`;
-      if (caption) caption.textContent = it.title || '';   // ← 新增
-      if (modalImg.complete) modalImg.classList.add('opacity-100');
-      modalImg.onload = () => modalImg.classList.add('opacity-100');
-    };
-
-    const open = () => {
-      update(0);
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    };
-
-    const close = () => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-      if (caption) caption.textContent = '';               // ← 新增：關閉時清空
-    };
-
-    coverWrap.addEventListener('click', open);
-    if (closeBtn)   closeBtn.addEventListener('click', close);
-    if (backdrop)   backdrop.addEventListener('click', close);
-    if (prevBtn)    prevBtn.addEventListener('click', () => update(idx - 1));
-    if (nextBtn)    nextBtn.addEventListener('click', () => update(idx + 1));
-
-    // 鍵盤操作
-    document.addEventListener('keydown', (e) => {
-      if (modal.classList.contains('hidden')) return;
-      if (e.key === 'Escape')     close();
-      if (e.key === 'ArrowLeft')  update(idx - 1);
-      if (e.key === 'ArrowRight') update(idx + 1);
-    });
-  };
-
-<script>
-  window.__useNewCarousel = true;
-
-  // 共用輪播初始化：支援 captionId
-  const initCarousel = ({
-    moduleName,
-    images,
-    coverImgId,
-    coverWrapId,
-    modalId,
-    modalImgId,
-    prevBtnId, nextBtnId,
-    closeBtnId, backdropId,
-    counterId,
-    captionId              // 新增：名稱容器 id
-  }) => {
-    const coverImg  = document.getElementById(coverImgId);
-    const coverWrap = document.getElementById(coverWrapId);
-    const modal     = document.getElementById(modalId);
-    const modalImg  = document.getElementById(modalImgId);
-    const prevBtn   = document.getElementById(prevBtnId);
-    const nextBtn   = document.getElementById(nextBtnId);
-    const closeBtn  = document.getElementById(closeBtnId);
-    const backdrop  = document.getElementById(backdropId);
-    const counter   = document.getElementById(counterId);
-    const caption   = captionId ? document.getElementById(captionId) : null;
-
-    if (!coverImg || !coverWrap || !modal || !modalImg || !images?.length) return;
-
-    let idx = 0;
-    const total = images.length;
-
-    // 封面（前景 + 可選背景）
-    coverImg.src = images[0].src;
-    coverImg.alt = images[0].title || `${moduleName}封面`;
-    const coverBg = document.getElementById(coverImgId + '-bg');
-    if (coverBg) {
-      coverBg.src = images[0].src;
-      coverBg.alt = (images[0].title || `${moduleName}封面`) + ' 背景';
-    }
-    if (coverImg.complete) coverImg.classList.add('opacity-100');
-    coverImg.onload = () => coverImg.classList.add('opacity-100');
-
-    // 切換更新
-    const update = (i) => {
-      idx = (i + total) % total;
-      const it = images[idx];
-      modalImg.classList.remove('opacity-100');
-      modalImg.src = it.src;
-      modalImg.alt = it.title || `${moduleName} 第 ${idx + 1} 張`;
-      if (counter) counter.textContent = `${idx + 1}/${total}`;
-      if (caption) caption.textContent = it.title || '';
-      if (modalImg.complete) modalImg.classList.add('opacity-100');
-      modalImg.onload = () => modalImg.classList.add('opacity-100');
-    };
-
-    const open = () => {
-      update(0);
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    };
-    const close = () => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    };
-
-    coverWrap.addEventListener('click', open);
-    if (closeBtn) closeBtn.addEventListener('click', close);
-    if (backdrop) backdrop.addEventListener('click', close);
-    if (prevBtn) prevBtn.addEventListener('click', () => update(idx - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => update(idx + 1));
-
-    document.addEventListener('keydown', (e) => {
-      if (modal.classList.contains('hidden')) return;
-      if (e.key === 'Escape')     close();
-      if (e.key === 'ArrowLeft')  update(idx - 1);
-      if (e.key === 'ArrowRight') update(idx + 1);
-    });
-  };
-
-  // ===== 資料集（每張一定要有 title）+ 初始化 =====
-  document.addEventListener('DOMContentLoaded', () => {
-    const dataSets = {
-      two: [
-        { src: './主菜-日式鹽麴雞腿排.png',              title: '日式鹽麴雞腿排' },
-        { src: './主菜-法式油封杏鮑菇(素).png',          title: '法式油封杏鮑菇(素)' },
-        { src: './主菜-獨家香料鹹豬肉.png',              title: '獨家香料鹹豬肉' },
-        { src: './主菜-蔥油雞胸肉.png',                  title: '蔥油雞胸肉' }
-      ],
-      four: [
-        { src: './雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg',     title: '雙主菜：鹽麴雞腿排 x 鹹豬肉' },
-        { src: './雙主菜-法式油封杏鮑菇x日式牛肉漢堡排.jpg',     title: '雙主菜：油封杏鮑菇 x 牛肉漢堡排' },
-        { src: './雙主菜-自製蔥油雞胸肉x獨家香料鹹豬肉.jpg',     title: '雙主菜：蔥油雞胸肉 x 鹹豬肉' },
-        { src: './雙主菜-雙主菜 鯖魚一夜干x獨家香料鹹豬肉.jpg',  title: '雙主菜：鯖魚一夜干 x 鹹豬肉' }
-      ],
-      eight: [
-        { src: './8格雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg',  title: '八格：牛肉漢堡排 x 油封杏鮑菇' },
-        { src: './8格雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg',  title: '八格：鹽麴雞腿排 x 鹹豬肉' },
-        { src: './8格雙主菜-韓式炸雞x獨家香料鹹豬肉.jpg',        title: '八格：韓式炸雞 x 鹹豬肉' },
-        { src: './8格雙主菜-鯖魚一夜干x獨家香料鹹豬肉.jpg',      title: '八格：鯖魚一夜干 x 鹹豬肉' }
-      ]
-    };
-
-    // 二格盒
-    initCarousel({
-      moduleName:'二格盒',
-      images: dataSets.two,
-      coverImgId:'two-cover',
-      coverWrapId:'two-box-cover',
-      modalId:'two-modal',
-      modalImgId:'two-modal-img',
-      prevBtnId:'two-prev',
-      nextBtnId:'two-next',
-      closeBtnId:'two-close',
-      backdropId:'two-backdrop',
-      counterId:'two-counter',
-      captionId:'two-caption'
-    });
-
-    // 四格盒
-    initCarousel({
-      moduleName:'四格盒',
-      images: dataSets.four,
-      coverImgId:'four-cover',
-      coverWrapId:'four-box-cover',
-      modalId:'four-modal',
-      modalImgId:'four-modal-img',
-      prevBtnId:'four-prev',
-      nextBtnId:'four-next',
-      closeBtnId:'four-close',
-      backdropId:'four-backdrop',
-      counterId:'four-counter',
-      captionId:'four-caption'
-    });
-
-    // 八格盒
-    initCarousel({
-      moduleName:'八格盒',
-      images: dataSets.eight,
-      coverImgId:'eight-cover',
-      coverWrapId:'eight-box-cover',
-      modalId:'eight-modal',
-      modalImgId:'eight-modal-img',
-      prevBtnId:'eight-prev',
-      nextBtnId:'eight-next',
-      closeBtnId:'eight-close',
-      backdropId:'eight-backdrop',
-      counterId:'eight-counter',
-      captionId:'eight-caption'
-    });
-  });
-</script>
-    
-    <!-- 精緻點心餐盒（先用 Picsum 佔位圖；之後可換成本地路徑） -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // 依卡片標題 -> 指定圖片（路徑以 docs 為相對根）
-  // 如果「大理石抽屜盒.jpg」真的在 docs/cs/ 底下，請用 './cs/大理石抽屜盒.jpg'
-  const dessertMap = {
-    '大理石餐盒':   './大理石抽屜盒.jpg',   // 或 './cs/大理石抽屜盒.jpg'
-    '四格餐盒':     './四格餐盒.jpg',
-    '伊蓮娜餐盒':   './伊蓮娜餐盒.jpg',
-    '小木片餐盒':   './小木片餐盒.jpg',
-    '美饌餐盒':     './美饌餐盒.jpg',
-    '大理石六格盒': './大理石六格盒.jpg'
-  };
-
-  const cards = document.querySelectorAll('#dessert-boxes .bg-light.rounded-xl');
-  const versionBuster = '?v=8';
-
-  cards.forEach(card => {
-    const img   = card.querySelector('img');
-    const title = card.querySelector('h3')?.textContent?.trim();
-    const src   = dessertMap[title];
-
-    if (!img || !src) return;
-
-    // 若之前有「鎖圖」屬性，先解鎖再換圖
-    img.removeAttribute('data-lock');
-    img.src = src + versionBuster;
-    img.alt = title;
-  });
-});
-</script>
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const modal    = document.getElementById('zoom-modal');
-  const modalImg = document.getElementById('zoom-img');
-  const backdrop = document.getElementById('zoom-backdrop');
-  const closeBtn = document.getElementById('zoom-close');
-
-  // 讓 #dessert-boxes 裡所有圖片可點擊放大
-  document.querySelectorAll('#dessert-boxes img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => {
-      // 只讀取原圖 src，不修改原圖（不會被你的「鎖圖補丁」擋）
-      modalImg.src = img.currentSrc || img.src;
-      modalImg.alt = img.alt || '預覽圖';
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  function closeModal() {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.style.overflow = '';
-    modalImg.src = '';
-  }
-
-  backdrop.addEventListener('click', closeModal);
-  closeBtn.addEventListener('click', closeModal);
-  document.addEventListener('keydown', (e) => {
-    if (!modal.classList.contains('hidden') && e.key === 'Escape') closeModal();
-  });
-});
-</script>
-    <!-- ===== 精緻點心餐盒 ===== -->
-<section id="dessert-boxes" class="py-20 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">
-      精緻點心餐盒
-    </h2>
-    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">
-      會議茶點、派對餐盒與各式小點，精緻好分發、上桌體面
-    </p>
-
-    <!-- 這裡的卡片 class 與標題文字要對應到你的 JS 才會自動換圖 -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- 1 -->
-      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
-        <div class="aspect-[16/9] overflow-hidden">
-          <img src="" alt="大理石餐盒" class="w-full h-full object-cover" loading="lazy">
-        </div>
-        <div class="p-4">
-          <h3 class="font-bold text-lg">大理石餐盒</h3>
-          <p class="text-gray-600 text-sm mt-1">抽屜式設計，容量彈性好擺放</p>
-        </div>
-      </div>
-      <!-- 2 -->
-      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
-        <div class="aspect-[16/9] overflow-hidden">
-          <img src="" alt="四格餐盒" class="w-full h-full object-cover" loading="lazy">
-        </div>
-        <div class="p-4">
-          <h3 class="font-bold text-lg">四格餐盒</h3>
-          <p class="text-gray-600 text-sm mt-1">分格清晰，甜鹹點一次到位</p>
-        </div>
-      </div>
-      <!-- 3 -->
-      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
-        <div class="aspect-[16/9] overflow-hidden">
-          <img src="" alt="伊蓮娜餐盒" class="w-full h-full object-cover" loading="lazy">
-        </div>
-        <div class="p-4">
-          <h3 class="font-bold text-lg">伊蓮娜餐盒</h3>
-          <p class="text-gray-600 text-sm mt-1">歐風質感，適合商務茶點</p>
-        </div>
-      </div>
-      <!-- 4 -->
-      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
-        <div class="aspect-[16/9] overflow-hidden">
-          <img src="" alt="小木片餐盒" class="w-full h-full object-cover" loading="lazy">
-        </div>
-        <div class="p-4">
-          <h3 class="font-bold text-lg">小木片餐盒</h3>
-          <p class="text-gray-600 text-sm mt-1">自然木質感，氣氛滿分</p>
-        </div>
-      </div>
-      <!-- 5 -->
-      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
-        <div class="aspect-[16/9] overflow-hidden">
-          <img src="" alt="美饌餐盒" class="w-full h-full object-cover" loading="lazy">
-        </div>
-        <div class="p-4">
-          <h3 class="font-bold text-lg">美饌餐盒</h3>
-          <p class="text-gray-600 text-sm mt-1">款式彈性高，搭配自由</p>
-        </div>
-      </div>
-      <!-- 6（這個名稱請保留，JS 會特別處理） -->
-      <div class="bg-light rounded-xl overflow-hidden shadow-sm">
-        <div class="aspect-[16/9] overflow-hidden">
-          <img src="" alt="大理石六格盒" class="w-full h-full object-cover" loading="lazy">
-        </div>
-        <div class="p-4">
-          <h3 class="font-bold text-lg">大理石六格盒</h3>
-          <p class="text-gray-600 text-sm mt-1">六格分裝，視覺豐富不混味</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-    <!-- 精緻點心餐盒：簡易放大燈箱 -->
-<div id="zoom-modal" class="fixed inset-0 z-60 hidden items-center justify-center">
-  <div id="zoom-backdrop" class="absolute inset-0 bg-black/80"></div>
-  <img id="zoom-img"
-       class="relative z-10 max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-xl"
-       alt="預覽圖">
-  <button id="zoom-close"
-          class="absolute z-10 top-6 right-6 text-white text-3xl hover:text-gray-300"
-          aria-label="close">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
-</div>
-    <!-- FAQ -->
-    <section id="faq" class="py-20 bg-light">
+    <!-- ===== 二格盒封面區 ===== -->
+    <section id="two-box-compact" class="py-20 bg-light">
       <div class="container mx-auto px-4">
-        <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">常見問題</h2>
-        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">
-          以下是客戶經常詢問的問題，若有其他疑問歡迎隨時聯繫我們
-        </p>
+        <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">經典設計，主食與配菜完美分離，簡約大方又實用</p>
 
-        <div class="max-w-3xl mx-auto space-y-6">
-          <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
-            <summary class="font-bold text-lg p-6 cursor-pointer list-none flex justify-between items-center">
-              <span>Q1｜最低訂購數量與金額？</span>
-              <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
-            </summary>
-            <div class="px-6 pb-6 text-gray-600">
-              <p>單筆訂單至少 30 盒。建議單價 NT$180／人 起（未稅），不含交通費；運費依地點與時段另計。</p>
-            </div>
-          </details>
+        <div id="two-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
+          <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <img id="two-cover-bg" class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50" aria-hidden="true">
+            <img id="two-cover" class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700" alt="二格盒封面" loading="lazy">
+          </div>
 
-          <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
-            <summary class="font-bold text-lg p-6 cursor-pointer list-none flex justify-between items-center">
-              <span>Q2｜最晚要提早多久預訂？</span>
-              <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
-            </summary>
-            <div class="px-6 pb-6 text-gray-600">
-              <p>建議至少提前 7 天預訂；急單可私訊確認檔期（依當日產能為準）。</p>
-            </div>
-          </details>
-
-          <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
-            <summary class="font-bold text-lg p-6 cursor-pointer list-none flex justify-between items-center">
-              <span>Q3｜可不辣／低醣／無麩質？</span>
-              <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
-            </summary>
-            <div class="px-6 pb-6 text-gray-600">
-              <p>下單時請先註明；我們可提供不辣／低醣選擇，或移除特定醬料；含麩質品項將提供替代選項。</p>
-              <p class="mt-2 text-accent italic">提醒：廚房為共用環境，無法保證零交叉過敏原，嚴重過敏者請先行評估。</p>
-            </div>
-          </details>
-
-          <details class="bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
-            <summary class="font-bold text-lg p-6 cursor-pointer list-none flex justify-between items-center">
-              <span>Q4｜可以指定菜單或更換配菜？</span>
-              <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
-            </summary>
-            <div class="px-6 pb-6 text-gray-600">
-              <p>可以。若需指定菜單或更換配菜，請私訊說明需求，我們將依情況客製調整（以食材與產能評估為準）。</p>
-            </div>
-          </details>
+          <div class="p-6 text-center">
+            <span class="inline-flex items-center text-primary font-medium">
+              點擊查看更多 <i class="fa-solid fa-arrow-right ml-2"></i>
+            </span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 聯繫表單 -->
-    <section id="contact" class="py-20 bg-primary/5">
+    <!-- 二格盒燈箱 -->
+    <div id="two-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
+      <div id="two-backdrop" class="absolute inset-0 bg-black/80"></div>
+      <div class="relative z-10 max-w-5xl w-full mx-4">
+        <button id="two-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button id="two-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="aspect-[16/9] rounded-lg overflow-hidden">
+          <img id="two-modal-img" src="" alt="二格盒大圖" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
+        </div>
+        <button id="two-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
+          <span id="two-counter">1/4</span>
+        </div>
+        <!-- 名稱（caption） -->
+        <div id="two-caption"
+             class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-20
+                    text-white bg-black/60 px-4 py-2 rounded-full text-sm"
+             aria-live="polite"></div>
+      </div>
+    </div>
+
+    <!-- ===== 四格盒封面區 ===== -->
+    <section id="four-box-compact" class="py-20 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">聯繫我們</h2>
-        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">
-          填寫以下表單，我們將盡快與您聯繫，為您提供詳細報價與服務說明
-        </p>
+        <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">四格盒植纖餐盒</h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">環保植纖材質，四格分裝設計，多種菜色一次享受</p>
 
-        <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-          <form id="contact-form" class="space-y-6" novalidate>
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名 *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-              />
-            </div>
-
-            <div>
-              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">電話 *</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-              />
-            </div>
-
-            <div>
-              <label for="budget" class="block text-sm font-medium text-gray-700 mb-1">預算 *</label>
-              <select
-                id="budget"
-                name="budget"
-                required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-              >
-                <option value="">請選擇預算範圍</option>
-                <option value="below3k">3000元以內</option>
-                <option value="3k-8k">3000 - 8000元</option>
-                <option value="8k-15k">8000 - 15000元</option>
-                <option value="15k-30k">15000 - 30000元</option>
-                <option value="above30k">30000元以上</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="event-type" class="block text-sm font-medium text-gray-700 mb-1">活動類型 *</label>
-              <select
-                id="event-type"
-                name="event-type"
-                required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-              >
-                <option value="">請選擇活動類型</option>
-                <option value="business">商務會議</option>
-                <option value="company">企業活動</option>
-                <option value="party">派對聚會</option>
-                <option value="school">學校活動</option>
-                <option value="other">其他</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">備註</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                placeholder="請告訴我們您的特殊需求或疑問..."
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              class="w-full bg-primary hover:bg-accent text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 transform hover:-translate-y-1 hover:shadow-lg"
-            >
-              提交詢問
-            </button>
-          </form>
+        <div id="four-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
+          <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <img id="four-cover-bg" class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50" aria-hidden="true">
+            <img id="four-cover" class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700" alt="四格盒封面" loading="lazy">
+          </div>
+          <!-- 這裡補上「點擊查看更多」 -->
+          <div class="p-6 text-center">
+            <span class="inline-flex items-center text-primary font-medium">
+              點擊查看更多 <i class="fa-solid fa-arrow-right ml-2"></i>
+            </span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 頁腳 -->
-    <footer class="bg-dark text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <div class="flex items-center space-x-2 mb-4">
-              <i class="fa-solid fa-leaf text-secondary text-2xl"></i>
-              <span class="font-serif font-bold text-xl">木人艸</span>
-            </div>
-            <p class="text-gray-400 mb-4">提供高品質便當與點心餐盒，為各種活動帶來美味體驗。</p>
-            <div class="flex space-x-4">
-              <a
-                href="https://www.facebook.com/profile.php?id=61554825134056"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-gray-400 hover:text-white transition-colors"
-                title="木人艸臉書粉絲頁"
-              >
-                <i class="fa-brands fa-facebook-f"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/murencao_food/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-gray-400 hover:text-white transition-colors"
-                title="木人艸 Instagram"
-              >
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a
-                href="https://lin.ee/WMJkjav"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-gray-400 hover:text-white transition-colors"
-                title="加入 LINE 官方帳號"
-              >
-                <i class="fa-brands fa-line"></i>
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="font-bold text-lg mb-4">快速鏈接</h3>
-            <ul class="space-y-2">
-              <li><a href="#hero" class="text-gray-400 hover:text-white transition-colors">首頁</a></li>
-              <li><a href="#two-box-compact" class="text-gray-400 hover:text-white transition-colors">二格盒</a></li>
-              <li><a href="#four-box-compact" class="text-gray-400 hover:text-white transition-colors">四格盒</a></li>
-              <li><a href="#eight-box-compact" class="text-gray-400 hover:text-white transition-colors">韓式八格盒</a></li>
-              <li><a href="#dessert-boxes" class="text-gray-400 hover:text-white transition-colors">點心餐盒</a></li>
-              <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">聯繫我們</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="font-bold text-lg mb-4">聯繫資訊</h3>
-            <ul class="space-y-2">
-              <li class="flex items-start">
-                <i class="fa-solid fa-location-dot text-secondary mt-1 mr-3"></i>
-                <a
-                  href="https://maps.google.com/maps?q=台北市士林區後港街185號4樓"
-                  target="_blank"
-                  class="text-gray-400 hover:text-white transition-colors"
-                >
-                  台北市士林區後港街185號4樓（點擊開啟 Google 地圖）
-                </a>
-              </li>
-              <li class="flex items-center">
-                <i class="fa-solid fa-phone text-secondary mr-3"></i>
-                <a href="tel:+886228832113" class="text-gray-400 hover:text-white transition-colors">
-                  02 2883 2113（點擊可直接撥號）
-                </a>
-              </li>
-            </ul>
-          </div>
+    <!-- 四格盒燈箱 -->
+    <div id="four-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
+      <div id="four-backdrop" class="absolute inset-0 bg-black/80"></div>
+      <div class="relative z-10 max-w-5xl w-full mx-4">
+        <button id="four-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button id="four-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="aspect-[16/9] rounded-lg overflow-hidden">
+          <img id="four-modal-img" src="" alt="四格盒大圖" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
         </div>
-
-        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-          <p>© 2023 木人艸便當餐盒. 保留所有權利.</p>
+        <button id="four-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
+          <span id="four-counter">1/4</span>
         </div>
+        <!-- 名稱（caption） -->
+        <div id="four-caption"
+             class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-20
+                    text-white bg-black/60 px-4 py-2 rounded-full text-sm"
+             aria-live="polite"></div>
       </div>
-    </footer>
+    </div>
 
-    <!-- 返回頂部 -->
-    <button
-      id="back-to-top"
-      class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-accent"
-      aria-label="back to top"
-    >
-      <i class="fa-solid fa-chevron-up"></i>
-    </button>
-
-    <!-- 表單、滾動、淡入動畫 -->
-    <script>
-      // 表單提交
-      document.getElementById('contact-form').addEventListener('submit', function(e){
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        if(!name || !phone){
-          alert('請填寫姓名和電話');
-          return;
-        }
-        alert('感謝您的詢問！我們將盡快與您聯繫。');
-        this.reset();
-      });
-
-      // 平滑捲動（只攔 href 以 # 開頭）
-      document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-        anchor.addEventListener('click', function(e){
-          const targetId = this.getAttribute('href');
-          if (!targetId || targetId === '#') return;
-          e.preventDefault();
-          const target = document.querySelector(targetId);
-          if(target){
-            const header = document.querySelector('header');
-            const offset = header ? header.offsetHeight : 80;
-            window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
-            history.replaceState(null, document.title, targetId);
-          }
-        });
-      });
-
-      // 回頂按鈕 + 導航縮放
-      const backToTopButton = document.getElementById('back-to-top');
-      window.addEventListener('scroll', ()=>{
-        if (window.pageYOffset > 300){
-          backToTopButton.classList.remove('opacity-0','invisible');
-          backToTopButton.classList.add('opacity-100','visible');
-        } else {
-          backToTopButton.classList.remove('opacity-100','visible');
-          backToTopButton.classList.add('opacity-0','invisible');
-        }
-
-        const header = document.querySelector('header');
-        if (window.pageYOffset > 100){
-          header.classList.add('py-2','shadow');
-          header.classList.remove('py-3');
-        } else {
-          header.classList.add('py-3');
-          header.classList.remove('py-2','shadow');
-        }
-      });
-      backToTopButton.addEventListener('click', ()=> window.scrollTo({ top:0, behavior:'smooth' }) );
-
-      // 全站圖片淡入
-      document.addEventListener('DOMContentLoaded', ()=>{
-        const images = document.querySelectorAll('img');
-        images.forEach(img=>{
-          img.classList.add('opacity-0','transition-opacity','duration-700');
-          img.onload = function(){ this.classList.add('opacity-100'); this.classList.remove('opacity-0'); }
-          if (img.complete){ img.classList.add('opacity-100'); img.classList.remove('opacity-0'); }
-        });
-      });
-
-      // FAQ 展合箭頭旋轉
-      document.addEventListener('DOMContentLoaded', ()=>{
-        document.querySelectorAll('#faq details').forEach(details=>{
-          details.addEventListener('toggle', function(){
-            const icon = this.querySelector('i');
-            if (icon) icon.style.transform = this.open ? 'rotate(180deg)' : 'rotate(0)';
-          });
-        });
-      });
-    </script>5
-    
-<script>
-  function setHeaderVar(){
-    const h = document.getElementById('site-header')?.offsetHeight || 64;
-    document.documentElement.style.setProperty('--hdr', h + 'px');
-  }
-  addEventListener('load', setHeaderVar, { once: true });
-  addEventListener('resize', setHeaderVar);
-</script>
-
-    <!-- 鎖圖補丁（避免 #dessert-boxes 的圖片被覆蓋；並可針對「大理石六格盒」指定圖檔） -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // 鎖住 #dessert-boxes 裡的所有圖片
-        document.querySelectorAll('#dessert-boxes img').forEach(img => {
-          img.setAttribute('data-lock', 'true');
-        });
-
-        // 若你有自己的「大理石六格盒」圖片，填上路徑；留空則沿用現在的 picsum
-        const FIXED_MARBLE_IMG = null; // 例：'./images/dessert/大理石六格盒.jpg'
-
-        // 指定「大理石六格盒」圖片 + 破快取
-        const cards = document.querySelectorAll('#dessert-boxes .bg-light.rounded-xl');
-        cards.forEach(card => {
-          const title = card.querySelector('h3')?.textContent?.trim();
-          if (title === '大理石六格盒') {
-            const img = card.querySelector('img');
-            if (img) {
-              const src = FIXED_MARBLE_IMG || img.getAttribute('src') || '';
-              const v = src.includes('?') ? '&v=2' : '?v=2';
-              img.src = src + v;
-              img.alt = '大理石六格盒';
-            }
-          }
-        });
-
-        // 全域保護：被鎖住的圖片不允許修改 src
-        const _setAttr = Element.prototype.setAttribute;
-        Element.prototype.setAttribute = function(name, value) {
-          if (name === 'src' && this.tagName === 'IMG' && this.getAttribute('data-lock') === 'true') {
-            return;
-          }
-          return _setAttr.apply(this, arguments);
-        };
-      });
-    </script>
-  </body>
-</html>
+    <!-- ===== 八格盒封面區 ===== -->
+    <section id="eight-box-compact" class="py-20 bg-light">
+      <div class="container mx-auto px-4">
+        <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">韓式八格盒</h2>
+        <p class="text

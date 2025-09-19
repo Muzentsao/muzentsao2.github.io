@@ -78,7 +78,7 @@
     </header>
 
     <!-- Hero -->
-   <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section id="hero" class="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0 z-0">
     <img
       src="./pexels-vanessa-loring-5971864.jpg?v=5"
@@ -91,14 +91,14 @@
     <div class="absolute inset-0 bg-dark/40"></div>
   </div>
 
-  <!-- 這塊是新容器：把標題/副標/按鈕/向下捲動放在同一列，整組置中 -->
+  <!-- 整組一起置中，行動友善 -->
   <div class="container mx-auto px-4 z-10">
-    <div class="flex flex-col items-center justify-center text-center gap-6">
-      <h1 class="font-serif font-bold text-[clamp(2.5rem,6vw,4.5rem)] text-white text-shadow leading-tight">
+    <div class="flex flex-col items-center justify-center text-center gap-6 pb-[env(safe-area-inset-bottom)]">
+      <h1 class="font-serif font-bold text-[clamp(2.25rem,8vw,4.5rem)] text-white text-shadow leading-tight">
         木人艸<br />精緻便當與點心餐盒
       </h1>
 
-      <p class="text-white text-[clamp(1rem,2vw,1.25rem)] max-w-2xl">
+      <p class="text-white text-[clamp(0.95rem,3.8vw,1.25rem)] max-w-2xl">
         準時好吃、好分發、好控預算的正餐便當與點心餐盒，為您的活動帶來美味體驗
       </p>
 
@@ -109,11 +109,13 @@
         立即詢價
       </a>
 
-      <!-- 向下捲動：改為同一容器內，與上方元素一起置中 -->
-      <a href="#features" class="flex flex-col items-center text-white animate-bounce mt-2">
-        <span class="text-sm">向下捲動</span>
-        <i class="fa-solid fa-chevron-down"></i>
-      </a>
+      <!-- 向下捲動：包一層 w-full 來強制水平置中 -->
+      <div class="w-full flex justify-center mt-2">
+        <a href="#features" class="flex flex-col items-center text-white animate-bounce" aria-label="向下捲動">
+          <span class="text-sm">向下捲動</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+      </div>
     </div>
   </div>
 </section>

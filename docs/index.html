@@ -55,7 +55,7 @@
 
   <body class="bg-light text-dark font-sans">
     <!-- 導航 -->
-    <header id="site-header" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+   <header id="site-header" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
       <div class="container mx-auto px-4 py-3 flex justify-between items-center">
         <a href="#" class="flex items-center space-x-2">
           <i class="fa-solid fa-leaf text-primary text-2xl"></i>
@@ -108,13 +108,21 @@
     </a>
   </div>
 
-  <div class="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce">
+  <div class="absolute bottom-8 inset-x-0 flex justify-center text-white animate-bounce">
     <a href="#features" class="flex flex-col items-center">
       <span class="mb-2 text-sm">向下捲動</span>
       <i class="fa-solid fa-chevron-down"></i>
     </a>
   </div>
 </section>
+    <script>
+  function setHeaderVar(){
+    const h = document.getElementById('site-header')?.offsetHeight || 64;
+    document.documentElement.style.setProperty('--hdr', h + 'px');
+  }
+  addEventListener('load', setHeaderVar);
+  addEventListener('resize', setHeaderVar);
+</script>
     <!-- 核心優勢 -->
     <section id="features" class="py-20 bg-white">
       <div class="container mx-auto px-4">

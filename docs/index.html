@@ -480,6 +480,40 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal    = document.getElementById('zoom-modal');
+  const modalImg = document.getElementById('zoom-img');
+  const backdrop = document.getElementById('zoom-backdrop');
+  const closeBtn = document.getElementById('zoom-close');
+
+  // 讓 #dessert-boxes 裡所有圖片可點擊放大
+  document.querySelectorAll('#dessert-boxes img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      // 只讀取原圖 src，不修改原圖（不會被你的「鎖圖補丁」擋）
+      modalImg.src = img.currentSrc || img.src;
+      modalImg.alt = img.alt || '預覽圖';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+    modalImg.src = '';
+  }
+
+  backdrop.addEventListener('click', closeModal);
+  closeBtn.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('hidden') && e.key === 'Escape') closeModal();
+  });
+});
+</script>
     <!-- ===== 精緻點心餐盒 ===== -->
 <section id="dessert-boxes" class="py-20 bg-white">
   <div class="container mx-auto px-4">
@@ -556,7 +590,7 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </section>
     <!-- 精緻點心餐盒：簡易放大燈箱 -->
-<div id="zoom-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
+<div id="zoom-modal" class="fixed inset-0 z-60 hidden items-center justify-center">
   <div id="zoom-backdrop" class="absolute inset-0 bg-black/80"></div>
   <img id="zoom-img"
        class="relative z-10 max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-xl"
@@ -567,17 +601,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <i class="fa-solid fa-xmark"></i>
   </button>
 </div>
-    <!-- 精緻點心餐盒：簡易放大燈箱 -->
-<div id="zoom-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
-  <div id="zoom-backdrop" class="absolute inset-0 bg-black/80"></div>
-  <img id="zoom-img"
-       class="relative z-10 max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-xl"
-       alt="預覽圖">
-  <button id="zoom-close"
-          class="absolute z-10 top-6 right-6 text-white text-3xl hover:text-gray-300"
-          aria-label="close">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
+    
 </div>
     <!-- FAQ -->
     <section id="faq" class="py-20 bg-light">

@@ -242,15 +242,21 @@
   </div>
 </div>
 
-<!-- ===== 八格盒封面區 ===== -->
+<!-- ===== 八格盒封面區（修正版） ===== -->
 <section id="eight-box-compact" class="py-20 bg-light">
   <div class="container mx-auto px-4">
     <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">韓式八格盒</h2>
     <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">豐盛層次，韓風美味一次擁有，八格分裝各種經典韓式料理</p>
 
     <div id="eight-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
-      <div class="aspect-[16/9] overflow-hidden bg-black/5">
-        <img id="eight-cover" src="" alt="八格盒封面" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
+      <!-- 和 two/four 同樣結構：前景等比 + 背景模糊 -->
+      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
+        <img id="eight-cover-bg"
+             class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50"
+             aria-hidden="true">
+        <img id="eight-cover"
+             class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700"
+             alt="八格盒封面" loading="lazy">
       </div>
       <div class="p-6 text-center">
         <span class="inline-flex items-center text-primary font-medium">
@@ -261,7 +267,7 @@
   </div>
 </section>
 
-<!-- 八格盒燈箱 -->
+<!-- 八格盒燈箱（修正版） -->
 <div id="eight-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
   <div id="eight-backdrop" class="absolute inset-0 bg-black/80"></div>
   <div class="relative z-10 max-w-5xl w-full mx-4">
@@ -271,14 +277,19 @@
     <button id="eight-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
       <i class="fa-solid fa-chevron-left"></i>
     </button>
-   <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
-  <img id="eight-cover-bg"
-       class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50"
-       aria-hidden="true">
-  <img id="eight-cover"
-       class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700"
-       alt="八格盒封面" loading="lazy">
-</div>
+
+    <div class="aspect-[16/9] rounded-lg overflow-hidden">
+      <img id="eight-modal-img" src="" alt="八格盒大圖" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
+    </div>
+
+    <button id="eight-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
+      <span id="eight-counter">1/4</span>
+    </div>
+  </div>
 </div>
 
 <!-- 輪播：唯一版本（放在 </body> 前） -->

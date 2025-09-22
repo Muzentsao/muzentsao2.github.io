@@ -156,25 +156,21 @@
     </section>
 
    <!-- ===== 二格盒封面區 ===== -->
-<section id="two-box-compact" class="py-20 bg-light">
-  <div class="container mx-auto px-4">
-    <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
-    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">經典設計，主食與配菜完美分離，簡約大方又實用</p>
-
-    <div id="two-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
-  <!-- 這一塊是新的：4:3 + 背景模糊 + 前景等比不裁切 -->
-  <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
-    <!-- 背景：同張圖鋪滿、模糊、微放大 -->
+<div id="two-box-cover"
+     class="mx-auto max-w-[960px] md:max-w-[880px] lg:max-w-[960px]
+            rounded-2xl border bg-white shadow-sm overflow-hidden
+            cursor-pointer hover:scale-[1.01] transition">
+  <!-- 固定高度：手機 240 / 平板 360 / 桌機 420 -->
+  <div class="relative h-[240px] md:h-[360px] lg:h-[420px] overflow-hidden rounded-2xl">
     <img id="two-cover-bg"
          class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50"
          aria-hidden="true">
-    <!-- 前景：不裁切、不變形 -->
     <img id="two-cover"
          class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700"
          alt="二格盒封面" loading="lazy">
   </div>
 
-  <div class="p-6 text-center">
+  <div class="p-4 md:p-5 text-center">
     <span class="inline-flex items-center text-primary font-medium">
       點擊查看更多 <i class="fa-solid fa-arrow-right ml-2"></i>
     </span>

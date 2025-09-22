@@ -189,16 +189,26 @@
   <div class="relative z-10 max-w-5xl w-full mx-4">
     <button id="two-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
       <i class="fa-solid fa-xmark"></i>
-    </button>
-    <button id="two-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-    <div class="aspect-[16/9] rounded-lg overflow-hidden">
-      <img id="two-modal-img" src="" alt="二格盒大圖" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
-    </div>
-    <button id="two-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
+    <!-- 左鍵 -->
+<button
+  id="two-prev"
+  class="absolute left-2 md:left-0 top-1/2 -translate-y-1/2
+         w-14 h-14 md:w-10 md:h-10
+         bg-black/50 hover:bg-black/70 text-white
+         rounded-full flex items-center justify-center"
+  aria-label="prev">
+  <i class="fa-solid fa-chevron-left text-xl md:text-base"></i>
+</button>
+<!-- 右鍵 -->
+<button
+  id="two-next"
+  class="absolute right-2 md:right-0 top-1/2 -translate-y-1/2
+         w-14 h-14 md:w-10 md:h-10
+         bg-black/50 hover:bg-black/70 text-white
+         rounded-full flex items-center justify-center"
+  aria-label="next">
+  <i class="fa-solid fa-chevron-right text-xl md:text-base"></i>
+</button>
     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
       <span id="two-counter">1/4</span>
     </div>

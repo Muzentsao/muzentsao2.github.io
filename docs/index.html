@@ -556,6 +556,61 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </div>
 </section>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = Array.from(document.querySelectorAll('#dessert-boxes .dessert-card')).map(card => ({
+    key: card.getAttribute('data-key') || card.querySelector('h3')?.textContent?.trim() || '',
+    img: card.querySelector('img'),
+    title: card.querySelector('h3')?.textContent?.trim() || ''
+  }));
+  const items = cards.map(c => ({ title: c.title || c.key, src: c.img?.src || '' })).filter(x => x.src);
+
+  const modal = document.getElementById('dessert-modal');
+  const backdrop = document.getElementById('dessert-backdrop');
+  const closeBtn = document.getElementById('dessert-close');
+  const prevBtn = document.getElementById('dessert-prev');
+  const nextBtn = document.getElementById('dessert-next');
+  const img = document.getElementById('dessert-modal-img');
+  const counter = document.getElementById('dessert-counter');
+  if (!modal || !img || items.length === 0) return;
+
+  let idx = 0;
+  const update = (i) => {
+    idx = (i + items.length) % items.length;
+    img.classList.remove('opacity-100');
+    img.src = items[idx].src;
+    img.alt = items[idx].title;
+    if (counter) counter.textContent = `${idx + 1}/${items.length}`;
+    if (img.complete) img.classList.add('opacity-100');
+    img.onload = () => img.classList.add('opacity-100');
+  };
+  const open = (startTitle) => {
+    const start = items.findIndex(it => it.title === startTitle);
+    update(start >= 0 ? start : 0);
+    modal.classList.remove('hidden'); modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  };
+  const close = () => {
+    modal.classList.add('hidden'); modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('#dessert-boxes .dessert-card').forEach(card => {
+    const title = card.querySelector('h3')?.textContent?.trim();
+    card.addEventListener('click', () => open(title));
+  });
+  prevBtn?.addEventListener('click', () => update(idx - 1));
+  nextBtn?.addEventListener('click', () => update(idx + 1));
+  closeBtn?.addEventListener('click', close);
+  backdrop?.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => {
+    if (modal.classList.contains('hidden')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') update(idx - 1);
+    if (e.key === 'ArrowRight') update(idx + 1);
+  });
+});
+</script>
     <!-- 點心餐盒燈箱 -->
 <div id="dessert-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
   <div id="dessert-backdrop" class="absolute inset-0 bg-black/80"></div>

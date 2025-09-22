@@ -155,51 +155,51 @@
       </div>
     </section>
 
+   <!-- ===== 二格盒封面區 ===== -->
+<section id="two-box-compact" class="py-20 bg-light">
+  <div class="container mx-auto px-4">
+    <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">二格盒餐盒</h2>
+    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">經典設計，主食與配菜完美分離，簡約大方又實用</p>
+
+    <div id="two-box-cover" class="rounded-2xl border bg-white shadow-sm overflow-hidden cursor-pointer hover:scale-[1.01] transition">
+  <!-- 這一塊是新的：4:3 + 背景模糊 + 前景等比不裁切 -->
+  <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
+    <!-- 背景：同張圖鋪滿、模糊、微放大 -->
+    <img id="two-cover-bg"
+         class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50"
+         aria-hidden="true">
+    <!-- 前景：不裁切、不變形 -->
+    <img id="two-cover"
+         class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700"
+         alt="二格盒封面" loading="lazy">
+  </div>
+
+  <div class="p-6 text-center">
+    <span class="inline-flex items-center text-primary font-medium">
+      點擊查看更多 <i class="fa-solid fa-arrow-right ml-2"></i>
+    </span>
+  </div>
+</div>
+  </div>
+</section>
+
 <!-- 二格盒燈箱 -->
 <div id="two-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
   <div id="two-backdrop" class="absolute inset-0 bg-black/80"></div>
-
   <div class="relative z-10 max-w-5xl w-full mx-4">
-    <button id="two-close"
-            class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300 z-20"
-            aria-label="close">
+    <button id="two-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
       <i class="fa-solid fa-xmark"></i>
     </button>
-
-    <!-- ← 左鍵：加大、z-index 拉高、可觸控 -->
-    <button id="two-prev"
-            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2
-                   bg-black/50 hover:bg-black/70 text-white
-                   w-16 h-16 md:w-12 md:h-12 rounded-full flex items-center justify-center
-                   z-20 pointer-events-auto"
-            aria-label="prev" style="touch-action:manipulation;">
-      <i class="fa-solid fa-chevron-left text-2xl md:text-xl"></i>
+    <button id="two-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
+      <i class="fa-solid fa-chevron-left"></i>
     </button>
-
-    <div class="aspect-[16/9] rounded-lg overflow-hidden relative">
-      <img id="two-modal-img"
-           src="" alt="二格盒大圖"
-           class="w-full h-full object-contain opacity-0 transition-opacity duration-700"
-           loading="lazy">
-      <!-- 在圖片上方鋪一層「大熱區」讓整塊可點擊左右（不想要可拿掉） -->
-      <button class="absolute inset-y-0 left-0 w-2/5 z-10"
-              aria-label="tap left to prev" data-hot="prev"></button>
-      <button class="absolute inset-y-0 right-0 w-2/5 z-10"
-              aria-label="tap right to next" data-hot="next"></button>
+    <div class="aspect-[16/9] rounded-lg overflow-hidden">
+      <img id="two-modal-img" src="" alt="二格盒大圖" class="w-full h-full object-contain opacity-0 transition-opacity duration-700" loading="lazy">
     </div>
-
-    <!-- → 右鍵 -->
-    <button id="two-next"
-            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2
-                   bg-black/50 hover:bg-black/70 text-white
-                   w-16 h-16 md:w-12 md:h-12 rounded-full flex items-center justify-center
-                   z-20 pointer-events-auto"
-            aria-label="next" style="touch-action:manipulation;">
-      <i class="fa-solid fa-chevron-right text-2xl md:text-xl"></i>
+    <button id="two-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
+      <i class="fa-solid fa-chevron-right"></i>
     </button>
-
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8
-                text-white bg-black/50 px-4 py-2 rounded-full z-20">
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
       <span id="two-counter">1/4</span>
     </div>
   </div>

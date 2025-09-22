@@ -161,12 +161,11 @@
             rounded-2xl border bg-white shadow-sm overflow-hidden
             cursor-pointer hover:scale-[1.01] transition">
   <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
-    <img id="two-cover-bg"
-         class="absolute inset-0 w-full h-full object-cover blur-lg scale-110 opacity-50"
-         aria-hidden="true">
+    <!-- 刪掉 two-cover-bg；用單張圖裁切填滿 -->
     <img id="two-cover"
-         class="relative w-full h-full object-contain opacity-0 transition-opacity duration-700"
-         alt="二格盒封面" loading="lazy">
+         class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
+         alt="二格盒封面" loading="lazy"
+         style="object-position: 50% 68%;"> <!-- 先給一個預設焦點（可調） -->
   </div>
 
   <div class="p-4 md:p-5 text-center">
@@ -334,12 +333,7 @@
     coverImg.src = images[0].src;
     coverImg.alt = images[0].title || `${moduleName}封面`;
 
-    // 若有做「偽無留邊」的背景圖（id 以 -bg 結尾），同步設定
-    const coverBg = document.getElementById(coverImgId + '-bg');
-    if (coverBg) {
-      coverBg.src = images[0].src;
-      coverBg.alt = (images[0].title || `${moduleName}封面`) + ' 背景';
-    }
+
 
     if (coverImg.complete) coverImg.classList.add('opacity-100');
     coverImg.onload = () => coverImg.classList.add('opacity-100');
@@ -408,19 +402,19 @@
     };
 
     // 初始化三組
-    initCarousel({
-      moduleName:'二格盒',
-      images: dataSets.two,
-      coverImgId:'two-cover',
-      coverWrapId:'two-box-cover',
-      modalId:'two-modal',
-      modalImgId:'two-modal-img',
-      prevBtnId:'two-prev',
-      nextBtnId:'two-next',
-      closeBtnId:'two-close',
-      backdropId:'two-backdrop',
-      counterId:'two-counter'
-    });
+    // 封面圖（前景）
+coverImg.src = images[0].src;
+coverImg.alt = images[0].title || `${moduleName}封面`;
+
+// 讓封面改成「裁切填滿」並指定對位
+coverImg.classList.remove('object-contain');      // 若 HTML 上還有 object-contain，先移除
+coverImg.style.objectFit = 'cover';               // 裁切填滿
+coverImg.style.objectPosition = 'center 35%';     // 置中、往上對 35%（數值可調）
+
+// 仍保留你原本的淡入
+if (coverImg.complete) coverImg.classList.add('opacity-100');
+coverImg.onload = () => coverImg.classList.add('opacity-100');
+
 
     initCarousel({
       moduleName:'四格盒',

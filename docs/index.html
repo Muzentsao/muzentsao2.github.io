@@ -29,12 +29,12 @@
 
     <style>
   /* 往上移動 ＝ 調整 object-position 的 Y 百分比 */
-  .obj-up--110 { object-position: 50% -110%; }
-  .obj-up--110 { object-position: 50% -110%; }
-  .obj-up--110 { object-position: 50% -110%; }
-  .obj-up--110 { object-position: 50% -110%; }
-  .obj-up--110 { object-position: 50% -110%; }
-  .obj-up--110 { object-position: 50% -110%; }
+  .obj-up--5 { object-position: 50% -5%; }
+  .obj-up--5 { object-position: 50% -5%; }
+  .obj-up--5 { object-position: 50% -5%; }
+  .obj-up--5 { object-position: 50% -5%; }
+  .obj-up--5 { object-position: 50% -5%; }
+  .obj-up--5 { object-position: 50% -5%; }
 </style>
 
 
@@ -61,14 +61,6 @@
           box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
         }
       }
-      /* “只移動圖片內容”，卡片尺寸不變；加一點 scale 防止邊緣露空 */
-.pan-up-5  { transform: translateY(-5%)  scale(1.06); transform-origin: center top; }
-.pan-up-8  { transform: translateY(-8%)  scale(1.08); transform-origin: center top; }
-.pan-up-12 { transform: translateY(-12%) scale(1.10); transform-origin: center top; }
-.pan-up-16 { transform: translateY(-16%) scale(1.12); transform-origin: center top; }
-
-/* 確保前景圖能吃到 transform（有些 reset 可能把 img 設為 display:inline） */
-.img-block { display:block; }
     </style>
   </head>
 
@@ -183,13 +175,14 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
       <!-- 卡片 1：法式油封杏鮑菇(素) -->
-     <article class="bg-white rounded-2xl shadow-sm border overflow-hidden">
+      <article class="bg-white rounded-2xl shadow-sm border overflow-hidden">
         <div class="aspect-[4/3] overflow-hidden bg-white">
           <img
             src="./主菜-法式油封杏鮑菇(素).png"
             alt="二格盒餐盒—法式油封杏鮑菇(素)"
-             class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">法式油封杏鮑菇（素）</h3>
@@ -203,8 +196,9 @@
           <img
             src="./主菜-獨家香料鹹豬肉.png"
             alt="二格盒餐盒—獨家香料鹹豬肉"
-            class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">獨家香料鹹豬肉</h3>
@@ -218,8 +212,9 @@
           <img
             src="./主菜-日式鹽麴雞腿排.png"
             alt="二格盒餐盒—日式鹽麴雞腿排"
-            class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">日式鹽麴雞腿排</h3>
@@ -233,8 +228,9 @@
           <img
             src="./主菜-蔥油雞胸肉.png"
             alt="二格盒餐盒—蔥油雞胸肉"
-            class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">蔥油雞胸肉</h3>
@@ -260,8 +256,9 @@
           <img
             src="./雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg"
             alt="四格盒—日式鹽麴雞腿排 x 獨家香料鹹豬肉"
-           class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">鹽麴雞腿排 x 鹹豬肉</h3>
@@ -275,8 +272,9 @@
           <img
             src="./雙主菜-法式油封杏鮑菇x日式牛肉漢堡排.jpg"
             alt="四格盒—法式油封杏鮑菇 x 日式牛肉漢堡排"
-            class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">油封杏鮑菇 x 牛肉漢堡排</h3>
@@ -290,8 +288,9 @@
           <img
             src="./雙主菜-自製蔥油雞胸肉x獨家香料鹹豬肉.jpg"
             alt="四格盒—蔥油雞胸肉 x 獨家香料鹹豬肉"
-            class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">蔥油雞胸肉 x 鹹豬肉</h3>
@@ -305,8 +304,9 @@
           <img
             src="./雙主菜-雙主菜 鯖魚一夜干x獨家香料鹹豬肉.jpg"
             alt="四格盒-鯖魚一夜干 x 獨家香料鹹豬肉"
-           class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">鯖魚一夜干 x 鹹豬肉</h3>
@@ -333,8 +333,9 @@
           <img
             src="./8格雙主菜-日式牛肉漢堡排x法式油封杏鮑菇.jpg"
             alt="八格盒—日式牛肉漢堡排 x 法式油封杏鮑菇"
-            class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">牛肉漢堡排 x 油封杏鮑菇</h3>
@@ -348,8 +349,9 @@
           <img
             src="./8格雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉.jpg"
             alt="八格盒—日式鹽麴雞腿排 x 獨家香料鹹豬肉"
-           class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">鹽麴雞腿排 x 鹹豬肉</h3>
@@ -363,8 +365,9 @@
           <img
             src="./8格雙主菜-韓式炸雞x獨家香料鹹豬肉.jpg"
             alt="八格盒—韓式炸雞 x 獨家香料鹹豬肉"
-            class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">韓式炸雞 x 鹹豬肉</h3>
@@ -378,8 +381,9 @@
           <img
             src="./8格雙主菜-鯖魚一夜干x獨家香料鹹豬肉.jpg"
             alt="八格盒—鯖魚一夜干 x 獨家香料鹹豬肉"
-            class="w-full h-full object-cover img-block pan-up-2"
-            loading="lazy"/>
+            class="w-full h-full object-cover [object-up--5%] transition-transform duration-300 hover:scale-[1.02]"
+            loading="lazy"
+          />
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">鯖魚一夜干 x 鹹豬肉</h3>

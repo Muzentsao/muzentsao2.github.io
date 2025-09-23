@@ -760,6 +760,124 @@ document.addEventListener('DOMContentLoaded', () => {
     提交詢問
   </button>
 </form>
+<script>
+const BENTO_OPTIONS = {
+  '二格盒': ['法式油封杏鮑菇(素)','獨家香料鹹豬肉','日式鹽麴雞腿排','蔥油雞胸肉'],
+  '四格盒': [
+    '雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉',
+    '雙主菜-法式油封杏鮑菇x日式牛肉漢堡排',
+    '雙主菜-自製蔥油雞胸肉x獨家香料鹹豬肉',
+    '雙主菜-雙主菜 鯖魚一夜干x獨家香料鹹豬肉'
+  ],
+  '八格盒': [
+    '雙主菜-日式牛肉漢堡排x法式油封杏鮑菇',
+    '雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉',
+    '雙主菜-韓式炸雞x獨家香料鹹豬肉',
+    '雙主菜-鯖魚一夜干x獨家香料鹹豬肉'
+  ]
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+
+  const wantBento    = document.getElementById('want-bento');
+  const bentoFields  = document.getElementById('bento-fields');
+  const bentoBox     = document.getElementById('bento-box');
+  const bentoItem    = document.getElementById('bento-item');
+  const bentoQty     = document.getElementById('bento-qty');
+
+  const wantDessert  = document.getElementById('want-dessert');
+  const dessertFields= document.getElementById('dessert-fields');
+  const dessertType  = document.getElementById('dessert-type');
+  const dessertQty   = document.getElementById('dessert-qty');
+
+  // 切換便當
+  wantBento.addEventListener('change', () => {
+    const on = wantBento.checked;
+    bentoFields.classList.toggle('hidden', !on);
+    bentoBox.disabled  = !on;
+    bentoItem.disabled = !on || !bentoBox.value;
+    bentoQty.disabled  = !on;
+    if (!on) {
+      bentoBox.value=''; bentoItem.innerHTML='<option value="">請先選上方「便當盒型」</option>';
+      bentoItem.disabled=true; bentoQty.value='';
+    }
+  });
+
+  // 便當盒型 -> 主食清單
+  bentoBox.addEventListener('change', () => {
+    const list = BENTO_OPTIONS[bentoBox.value] || [];
+    bentoItem.innerHTML = list.length
+      ? ['<option value="">請選擇</option>', ...list.map(s => `<option>${s}</option>`)].join('')
+      : '<option value="">請先選上方「便當盒型」</option>';
+    bentoItem.disabled = !list.length;
+  });
+
+  // 切換點心
+  wantDessert.addEventListener('change', () => {
+    const on = wantDessert.checked;
+    dessertFields.classList.toggle('hidden', !on);
+    dessertType.disabled = !on;
+    dessertQty.disabled  = !on;
+    if (!on) { dessertType.value=''; dessertQty.value=''; }
+  });
+
+  // 提交
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // 基本欄位
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const eventDatetime = document.getElementById('event-datetime').value;
+    const eventType = document.getElementById('event-type').value;
+    const address = document.getElementById('address').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !phone || !eventDatetime || !eventType || !address) {
+      alert('請把姓名、電話、活動日期時間、活動類型、地點填完整喔！');
+      return;
+    }
+
+    // 訂購內容驗證（至少勾一種，且欄位完整）
+    const bentoOk   = !wantBento.checked   || (bentoBox.value && bentoItem.value && +bentoQty.value > 0);
+    const dessertOk = !wantDessert.checked || (dessertType.value && +dessertQty.value > 0);
+    if (!bentoOk || !dessertOk || (!wantBento.checked && !wantDessert.checked)) {
+      alert('請勾選並填好「訂購內容」（便當／點心至少擇一，且選項與數量都要填）');
+      return;
+    }
+
+    const lines = [
+      `【基本資料】`,
+      `姓名：${name}`,
+      `電話：${phone}${email ? `｜Email：${email}` : ''}`,
+      '',
+      `【活動資訊】`,
+      `時間：${eventDatetime}`,
+      `活動類型：${eventType}`,
+      `地點：${address}`,
+      '',
+      `【訂購內容】`,
+      wantBento.checked
+        ? `便當：${bentoBox.value}｜${bentoItem.value}｜${bentoQty.value} 盒`
+        : '便當：未勾選',
+      wantDessert.checked
+        ? `點心餐盒：${dessertType.value}｜${dessertQty.value} 盒`
+        : '點心餐盒：未勾選',
+      '',
+      message ? `【備註】\n${message}` : ''
+    ].filter(Boolean);
+
+    alert(lines.join('\n'));
+    form.reset();
+    bentoFields.classList.add('hidden');
+    dessertFields.classList.add('hidden');
+    [bentoBox,bentoItem,bentoQty,dessertType,dessertQty].forEach(el => el.disabled = true);
+  });
+});
+</script>
+
 
     <!-- 頁腳 -->
     <footer class="bg-dark text-white py-12">

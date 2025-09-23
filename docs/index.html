@@ -62,9 +62,14 @@
         }
       }
     </style>
+    <style type="text/tailwindcss">
+  @layer base {
+    html, body { @apply m-0 p-0; }     /* 移除瀏覽器預設的 8px 外邊距 */
+  }
+</style>
   </head>
 
-  <body class="bg-light text-dark font-sans">
+  <body class="bg-light text-dark font-sans overflow-x-hidden">
     <!-- 導航 -->
     <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
       <div class="container mx-auto px-4 py-3 flex justify-between items-center">

@@ -61,6 +61,14 @@
           box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
         }
       }
+      /* “只移動圖片內容”，卡片尺寸不變；加一點 scale 防止邊緣露空 */
+.pan-up-5  { transform: translateY(-5%)  scale(1.06); transform-origin: center top; }
+.pan-up-8  { transform: translateY(-8%)  scale(1.08); transform-origin: center top; }
+.pan-up-12 { transform: translateY(-12%) scale(1.10); transform-origin: center top; }
+.pan-up-16 { transform: translateY(-16%) scale(1.12); transform-origin: center top; }
+
+/* 確保前景圖能吃到 transform（有些 reset 可能把 img 設為 display:inline） */
+.img-block { display:block; }
     </style>
   </head>
 
@@ -180,9 +188,8 @@
           <img
             src="./主菜-法式油封杏鮑菇(素).png"
             alt="二格盒餐盒—法式油封杏鮑菇(素)"
-            class="w-full h-full object-cover [object-up--110%] transition-transform duration-300 hover:scale-[1.02]"
-            loading="lazy"
-          />
+             class="w-full h-full object-cover img-block pan-up-12"
+            loading="lazy"/>
         </div>
         <div class="p-4">
           <h3 class="font-bold text-lg">法式油封杏鮑菇（素）</h3>

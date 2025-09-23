@@ -632,152 +632,131 @@ document.addEventListener('DOMContentLoaded', () => {
     </section>
 
     <!-- 聯繫表單 -->
-    <section id="contact" class="py-20 bg-primary/5">
+    <section id="contact" class="pt-20 pb-32 md:pb-40 bg-primary/5">
       <div class="container mx-auto px-4">
         <h2 class="font-serif font-bold text-[clamp(1.8rem,4vw,2.5rem)] text-center mb-4">聯繫我們</h2>
         <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">
           填寫以下表單，我們將盡快與您聯繫，為您提供詳細報價與服務說明
         </p>
 
-        <form id="contact-form" class="space-y-6" novalidate>
-  <!-- 基本資料 -->
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名 *</label>
-      <input id="name" name="name" type="text" required
-             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-    </div>
-    <div>
-      <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">電話 *</label>
-      <input id="phone" name="phone" type="tel" required
-             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-    </div>
-    <div class="md:col-span-2">
-      <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-      <input id="email" name="email" type="email" placeholder="選填，用於寄送估價單"
-             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-    </div>
-  </div>
-
-  <!-- 活動資訊 -->
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <label for="event-datetime" class="block text-sm font-medium text-gray-700 mb-1">活動日期時間 *</label>
-      <input id="event-datetime" name="event-datetime" type="datetime-local" required
-             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-    </div>
-    <div>
-      <label for="total-qty" class="block text-sm font-medium text-gray-700 mb-1">預估總份數 *</label>
-      <input id="total-qty" name="total-qty" type="number" min="1" required placeholder="例如 50"
-             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-    </div>
-    <div class="md:col-span-2">
-      <label for="address" class="block text-sm font-medium text-gray-700 mb-1">活動/配送地點 *</label>
-      <input id="address" name="address" type="text" required placeholder="例：台北市○○區○○路○段○號○樓"
-             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-    </div>
-    <div>
-      <label for="budget" class="block text-sm font-medium text-gray-700 mb-1">預算 *</label>
-      <select id="budget" name="budget" required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-        <option value="">請選擇預算範圍</option>
-        <option value="below3k">3000元以內</option>
-        <option value="3k-8k">3000 - 8000元</option>
-        <option value="8k-15k">8000 - 15000元</option>
-        <option value="15k-30k">15000 - 30000元</option>
-        <option value="above30k">30000元以上</option>
-      </select>
-    </div>
-    <div>
-      <label for="event-type" class="block text-sm font-medium text-gray-700 mb-1">活動類型 *</label>
-      <select id="event-type" name="event-type" required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-        <option value="">請選擇活動類型</option>
-        <option value="business">商務會議</option>
-        <option value="company">企業活動</option>
-        <option value="party">派對聚會</option>
-        <option value="school">學校活動</option>
-        <option value="other">其他</option>
-      </select>
-    </div>
-  </div>
-
-  <!-- 訂購內容 -->
-  <fieldset class="space-y-4 border-t pt-6">
-    <legend class="font-semibold text-lg">訂購內容</legend>
-
-    <!-- 便當 -->
-    <label class="flex items-center gap-2">
-      <input type="checkbox" id="want-bento" class="h-4 w-4 text-primary">
-      <span class="font-medium">我要訂「便當」</span>
-    </label>
-    <div id="bento-fields" class="grid md:grid-cols-3 gap-4 pl-1 hidden">
-      <div>
-        <label for="bento-box" class="block text-sm text-gray-700 mb-1">便當盒型</label>
-        <select id="bento-box" disabled
-                class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-          <option value="">請選擇</option>
-          <option>二格盒</option>
-          <option>四格盒</option>
-          <option>八格盒</option>
-        </select>
-      </div>
-      <div>
-        <label for="bento-item" class="block text-sm text-gray-700 mb-1">主食/口味</label>
-        <select id="bento-item" disabled
-                class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-          <option value="">請先選上方「便當盒型」</option>
-        </select>
-      </div>
-      <div>
-        <label for="bento-qty" class="block text-sm text-gray-700 mb-1">數量（盒）</label>
-        <input type="number" id="bento-qty" min="1" placeholder="例如 30" disabled
-               class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-      </div>
-    </div>
-
-    <hr class="my-2">
-
-    <!-- 精緻點心餐盒 -->
-    <label class="flex items-center gap-2">
-      <input type="checkbox" id="want-dessert" class="h-4 w-4 text-primary">
-      <span class="font-medium">我要訂「精緻點心餐盒」</span>
-    </label>
-    <div id="dessert-fields" class="grid md:grid-cols-2 gap-4 pl-1 hidden">
-      <div>
-        <label for="dessert-type" class="block text-sm text-gray-700 mb-1">點心餐盒款式</label>
-        <select id="dessert-type" disabled
-                class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-          <option value="">請選擇</option>
-          <option>大理石餐盒大理石抽屜盒</option>
-          <option>四格餐盒</option>
-          <option>伊蓮娜餐盒</option>
-          <option>小木片餐盒</option>
-          <option>美饌餐盒</option>
-          <option>大理石六格盒</option>
-        </select>
-      </div>
-      <div>
-        <label for="dessert-qty" class="block text-sm text-gray-700 mb-1">數量（盒）</label>
-        <input type="number" id="dessert-qty" min="1" placeholder="例如 20" disabled
-               class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-      </div>
-    </div>
-  </fieldset>
-
-  <!-- 備註 -->
-  <div>
-    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">備註</label>
-    <textarea id="message" name="message" rows="4" placeholder="請告訴我們您的特殊需求或疑問..."
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
-  </div>
-
-  <button type="submit"
-          class="w-full bg-primary hover:bg-accent text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 transform hover:-translate-y-1 hover:shadow-lg">
-    提交詢問
-  </button>
-</form>
         <script>
+const BENTO_OPTIONS = {
+  '二格盒': ['法式油封杏鮑菇(素)','獨家香料鹹豬肉','日式鹽麴雞腿排','蔥油雞胸肉'],
+  '四格盒': [
+    '雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉',
+    '雙主菜-法式油封杏鮑菇x日式牛肉漢堡排',
+    '雙主菜-自製蔥油雞胸肉x獨家香料鹹豬肉',
+    '雙主菜-雙主菜 鯖魚一夜干x獨家香料鹹豬肉'
+  ],
+  '八格盒': [
+    '雙主菜-日式牛肉漢堡排x法式油封杏鮑菇',
+    '雙主菜-日式鹽麴雞腿排x獨家香料鹹豬肉',
+    '雙主菜-韓式炸雞x獨家香料鹹豬肉',
+    '雙主菜-鯖魚一夜干x獨家香料鹹豬肉'
+  ]
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+
+  const wantBento    = document.getElementById('want-bento');
+  const bentoFields  = document.getElementById('bento-fields');
+  const bentoBox     = document.getElementById('bento-box');
+  const bentoItem    = document.getElementById('bento-item');
+  const bentoQty     = document.getElementById('bento-qty');
+
+  const wantDessert  = document.getElementById('want-dessert');
+  const dessertFields= document.getElementById('dessert-fields');
+  const dessertType  = document.getElementById('dessert-type');
+  const dessertQty   = document.getElementById('dessert-qty');
+
+  // 切換便當
+  wantBento.addEventListener('change', () => {
+    const on = wantBento.checked;
+    bentoFields.classList.toggle('hidden', !on);
+    bentoBox.disabled  = !on;
+    bentoItem.disabled = !on || !bentoBox.value;
+    bentoQty.disabled  = !on;
+    if (!on) {
+      bentoBox.value=''; bentoItem.innerHTML='<option value="">請先選上方「便當盒型」</option>';
+      bentoItem.disabled=true; bentoQty.value='';
+    }
+  });
+
+  // 便當盒型 -> 主食清單
+  bentoBox.addEventListener('change', () => {
+    const list = BENTO_OPTIONS[bentoBox.value] || [];
+    bentoItem.innerHTML = list.length
+      ? ['<option value="">請選擇</option>', ...list.map(s => `<option>${s}</option>`)].join('')
+      : '<option value="">請先選上方「便當盒型」</option>';
+    bentoItem.disabled = !list.length;
+  });
+
+  // 切換點心
+  wantDessert.addEventListener('change', () => {
+    const on = wantDessert.checked;
+    dessertFields.classList.toggle('hidden', !on);
+    dessertType.disabled = !on;
+    dessertQty.disabled  = !on;
+    if (!on) { dessertType.value=''; dessertQty.value=''; }
+  });
+
+  // 提交
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // 基本欄位
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const eventDatetime = document.getElementById('event-datetime').value;
+    const eventType = document.getElementById('event-type').value;
+    const address = document.getElementById('address').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !phone || !eventDatetime || !eventType || !address) {
+      alert('請把姓名、電話、活動日期時間、活動類型、地點填完整喔！');
+      return;
+    }
+
+    // 訂購內容驗證（至少勾一種，且欄位完整）
+    const bentoOk   = !wantBento.checked   || (bentoBox.value && bentoItem.value && +bentoQty.value > 0);
+    const dessertOk = !wantDessert.checked || (dessertType.value && +dessertQty.value > 0);
+    if (!bentoOk || !dessertOk || (!wantBento.checked && !wantDessert.checked)) {
+      alert('請勾選並填好「訂購內容」（便當／點心至少擇一，且選項與數量都要填）');
+      return;
+    }
+
+    const lines = [
+      `【基本資料】`,
+      `姓名：${name}`,
+      `電話：${phone}${email ? `｜Email：${email}` : ''}`,
+      '',
+      `【活動資訊】`,
+      `時間：${eventDatetime}`,
+      `活動類型：${eventType}`,
+      `地點：${address}`,
+      '',
+      `【訂購內容】`,
+      wantBento.checked
+        ? `便當：${bentoBox.value}｜${bentoItem.value}｜${bentoQty.value} 盒`
+        : '便當：未勾選',
+      wantDessert.checked
+        ? `點心餐盒：${dessertType.value}｜${dessertQty.value} 盒`
+        : '點心餐盒：未勾選',
+      '',
+      message ? `【備註】\n${message}` : ''
+    ].filter(Boolean);
+
+    alert(lines.join('\n'));
+    form.reset();
+    bentoFields.classList.add('hidden');
+    dessertFields.classList.add('hidden');
+    [bentoBox,bentoItem,bentoQty,dessertType,dessertQty].forEach(el => el.disabled = true);
+  });
+});
+</script>
+7
 // 便當主食對照表
 const BENTO_OPTIONS = {
   '二格盒': [

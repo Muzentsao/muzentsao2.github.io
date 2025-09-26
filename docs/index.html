@@ -399,7 +399,113 @@
   </div>
 </section>
 
+    <!-- 通用圖片燈箱（for 二格盒／四格盒／八格盒） -->
+<div id="gallery-modal" class="fixed inset-0 z-[60] hidden items-center justify-center">
+  <div id="gallery-backdrop" class="absolute inset-0 bg-black/80"></div>
 
+  <div class="relative z-10 max-w-5xl w-full mx-4">
+    <button id="gallery-close" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" aria-label="close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <button id="gallery-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="prev">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <div class="aspect-[16/9] rounded-lg overflow-hidden bg-black/40">
+      <img id="gallery-img" src="" alt="" class="w-full h-full object-contain opacity-0 transition-opacity duration-700">
+    </div>
+
+    <button id="gallery-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center" aria-label="next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-8 text-white bg-black/50 px-4 py-2 rounded-full">
+      <span id="gallery-counter">1/1</span>
+    </div>
+  </div>
+</div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 1) 收集三個區塊的所有圖片
+  const selectors = ['#two-box-compact img', '#four-box-compact img', '#eight-box-compact img'];
+  const imgEls = Array.from(document.querySelectorAll(selectors.join(',')));
+
+  if (imgEls.length === 0) return;
+
+  // 2) 建立清單（依畫面順序）
+  const items = imgEls.map((img, i) => {
+    // 找不到 alt 就抓卡片標題 <h3>
+    const title =
+      img.getAttribute('alt')?.trim() ||
+      img.closest('article')?.querySelector('h3')?.textContent?.trim() ||
+      '';
+
+    // 給使用者視覺提示：游標變放大鏡
+    img.classList.add('cursor-zoom-in');
+
+    // 標上索引，之後點擊要用
+    img.dataset.galleryIndex = String(i);
+
+    return { src: img.currentSrc || img.src, title };
+  });
+
+  // 3) 取得燈箱元素
+  const modal   = document.getElementById('gallery-modal');
+  const backdrop= document.getElementById('gallery-backdrop');
+  const close   = document.getElementById('gallery-close');
+  const prevBtn = document.getElementById('gallery-prev');
+  const nextBtn = document.getElementById('gallery-next');
+  const imgTag  = document.getElementById('gallery-img');
+  const counter = document.getElementById('gallery-counter');
+
+  let idx = 0;
+
+  const update = (i) => {
+    idx = (i + items.length) % items.length;
+    const it = items[idx];
+    imgTag.classList.remove('opacity-100');
+    imgTag.src = it.src;
+    imgTag.alt = it.title || '';
+    if (counter) counter.textContent = `${idx + 1}/${items.length}`;
+    if (imgTag.complete) imgTag.classList.add('opacity-100');
+    imgTag.onload = () => imgTag.classList.add('opacity-100');
+  };
+
+  const open = (startIndex) => {
+    update(startIndex);
+    modal.classList.remove('hidden'); modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    modal.classList.add('hidden'); modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  };
+
+  // 4) 綁定每張圖片的點擊
+  imgEls.forEach(el => {
+    el.addEventListener('click', (e) => {
+      const i = Number(el.dataset.galleryIndex || 0);
+      open(i);
+    }, { passive: true });
+  });
+
+  // 5) 控制項
+  prevBtn?.addEventListener('click', () => update(idx - 1));
+  nextBtn?.addEventListener('click', () => update(idx + 1));
+  close?.addEventListener('click', closeModal);
+  backdrop?.addEventListener('click', closeModal);
+
+  // 6) 鍵盤操作
+  document.addEventListener('keydown', (e) => {
+    if (modal.classList.contains('hidden')) return;
+    if (e.key === 'Escape')      closeModal();
+    else if (e.key === 'ArrowLeft')  update(idx - 1);
+    else if (e.key === 'ArrowRight') update(idx + 1);
+  });
+});
+</script>
 
     <!-- 精緻點心餐盒（先用 Picsum 佔位圖；之後可換成本地路徑） -->
 <script>
